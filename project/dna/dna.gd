@@ -3,13 +3,13 @@ extends Resource
 
 enum GeneType {
 	SIZE,
-	COLOR,
+	COAT,
 	PATTERN,
 }
 
-var GeneClass = {
+static var GeneClass = {
 	GeneType.SIZE: SizeGene,
-	GeneType.COLOR: ColorGene,
+	GeneType.COAT: CoatGene,
 	GeneType.PATTERN: PatternGene,
 }
 

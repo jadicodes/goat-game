@@ -1,0 +1,22 @@
+extends GutTest
+
+func test_pattern_gene_output():
+    var coat_gene = CoatGene.new()
+    coat_gene.set_value(CoatGene.Allele.WHITE, CoatGene.Allele.WHITE)
+    assert_eq(coat_gene.get_coat(), CoatGene.Coat.WHITE, "Coat should be WHITE")
+    coat_gene.set_value(CoatGene.Allele.BROWN, CoatGene.Allele.BROWN)
+    assert_eq(coat_gene.get_coat(), CoatGene.Coat.BROWN, "Coat should be BROWN")
+    coat_gene.set_value(CoatGene.Allele.BLACK, CoatGene.Allele.BLACK)
+    assert_eq(coat_gene.get_coat(), CoatGene.Coat.BLACK, "Coat should be BLACK")
+    coat_gene.set_value(CoatGene.Allele.WHITE, CoatGene.Allele.BROWN)
+    assert_eq(coat_gene.get_coat(), CoatGene.Coat.LIGHT_BROWN, "Coat should be LIGHT_BROWN")
+    coat_gene.set_value(CoatGene.Allele.BROWN, CoatGene.Allele.WHITE)
+    assert_eq(coat_gene.get_coat(), CoatGene.Coat.LIGHT_BROWN, "Coat should be LIGHT_BROWN")
+    coat_gene.set_value(CoatGene.Allele.BROWN, CoatGene.Allele.BLACK)
+    assert_eq(coat_gene.get_coat(), CoatGene.Coat.DARK_BROWN, "Coat should be DARK_BROWN")
+    coat_gene.set_value(CoatGene.Allele.BLACK, CoatGene.Allele.BROWN)
+    assert_eq(coat_gene.get_coat(), CoatGene.Coat.DARK_BROWN, "Coat should be DARK_BROWN")
+    coat_gene.set_value(CoatGene.Allele.WHITE, CoatGene.Allele.BLACK)
+    assert_eq(coat_gene.get_coat(), CoatGene.Coat.GRAY, "Coat should be GRAY")
+    coat_gene.set_value(CoatGene.Allele.BLACK, CoatGene.Allele.WHITE)
+    assert_eq(coat_gene.get_coat(), CoatGene.Coat.GRAY, "Coat should be GRAY")
