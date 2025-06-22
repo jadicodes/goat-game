@@ -3,13 +3,36 @@ extends CharacterBody2D
 
 @export var speed = 300
 
+@onready var hit_box: Area2D = $HitBox
+
 
 func _physics_process(_delta: float) -> void:
-    var dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	var dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 
-    velocity = dir
+	velocity = dir
 
-    if dir != Vector2.ZERO:
-        velocity = velocity.normalized() * speed
+	if dir != Vector2.ZERO:
+		velocity = velocity.normalized() * speed
 
-    move_and_slide()
+	look_at(global_position + velocity)
+
+	move_and_slide()
+
+
+func attempt_interact() -> void:
+	var hit = hit_box.get_overlapping_bodies()
+
+	# TODO: Deal with multiple overlapping bodies
+	if hit.size() > 0:
+		for body in hit:
+			if body.has_method("interact"):
+				print(self.name, " interacting with ", body.name)
+				body.interact(self)
+				return
+
+	print("No interactable objects nearby.")
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("interact"):
+		attempt_interact()

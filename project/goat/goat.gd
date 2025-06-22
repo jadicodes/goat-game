@@ -21,3 +21,7 @@ func set_color(color: Color) -> void:
 
 func set_size(new_scale: float) -> void:
 	sprite.scale = Vector2(new_scale, new_scale)
+
+
+func interact(caller: Node) -> void:
+	print(self.name, " interacted with by ", caller.name)
