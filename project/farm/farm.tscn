@@ -1,8 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://botoiyyc2kyur"]
+[gd_scene load_steps=3 format=3 uid="uid://botoiyyc2kyur"]
 
 [ext_resource type="PackedScene" uid="uid://cqdu4npym77hm" path="res://farmer/farmer.tscn" id="1_at1a1"]
+[ext_resource type="PackedScene" uid="uid://cquhif3oogil8" path="res://goat/goat.tscn" id="2_qnc1y"]
 
 [node name="Farm" type="Node2D"]
 
 [node name="Farmer" parent="." instance=ExtResource("1_at1a1")]
 position = Vector2(894, 532)
+
+[node name="Goat" parent="." instance=ExtResource("2_qnc1y")]
+position = Vector2(390, 712)
+
+[node name="Goat2" parent="." instance=ExtResource("2_qnc1y")]
+position = Vector2(1508, 528)

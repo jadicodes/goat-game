@@ -42,5 +42,23 @@ func get_coat() -> Coat:
 			return Coat.GRAY
 		Vector2i(Allele.BLACK, Allele.WHITE):
 			return Coat.GRAY
+		_:
+			return Coat.WHITE  # Should never happen, but a default is needed
 
-	return Coat.WHITE  # Should never happen, but a default is needed
+
+func get_color() -> Color:
+	match get_coat():
+		Coat.WHITE:
+			return Color(1, 1, 1)
+		Coat.BROWN:
+			return Color(0.5, 0.25, 0)
+		Coat.BLACK:
+			return Color(0.2, 0.2, 0.2)
+		Coat.LIGHT_BROWN:
+			return Color(0.75, 0.5, 0.25)
+		Coat.DARK_BROWN:
+			return Color(0.25, 0.125, 0)
+		Coat.GRAY:
+			return Color(0.5, 0.5, 0.5)
+		_:
+			return Color(1, 1, 1)  # Should never happen, but a default is needed
