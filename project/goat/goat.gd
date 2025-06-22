@@ -1,20 +1,13 @@
 class_name Goat
 extends CharacterBody2D
 
-# States
-# - IDLE
-#   - DANCING
-#   - EATING
-#   - SLEEPING
-# - WALKING
-# - FOLLOWING
-
 @export var dna: DNA
 
 @export var speed: float = 100.0
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
+@onready var state_machine: StateMachine = $StateMachine
 
 
 func _ready() -> void:
@@ -39,4 +32,9 @@ func set_size(new_scale: float) -> void:
 
 
 func interact(caller: Node) -> void:
-	print(self.name, " interacted with by ", caller.name)
+	if not caller is Farmer:
+		return
+
+	state_machine.transition_to_next_state(GoatState.FOLLOW, {
+		"target": caller
+	})
