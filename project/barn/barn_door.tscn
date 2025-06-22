@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://det3pk5b77cx5"]
+
+[ext_resource type="Script" uid="uid://6id7nmtbv7pc" path="res://barn/barn_door.gd" id="1_cbndv"]
+[ext_resource type="Texture2D" uid="uid://c8tynnydekttg" path="res://icon.svg" id="1_vp0o4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qwbcp"]
+size = Vector2(512, 128)
+
+[node name="BarnDoor" type="StaticBody2D"]
+script = ExtResource("1_cbndv")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+scale = Vector2(4, 1)
+texture = ExtResource("1_vp0o4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qwbcp")
