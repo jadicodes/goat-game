@@ -1,6 +1,17 @@
+class_name Goat
 extends CharacterBody2D
 
+# States
+# - IDLE
+#   - DANCING
+#   - EATING
+#   - SLEEPING
+# - WALKING
+# - FOLLOWING
+
 @export var dna: DNA
+
+@export var speed: float = 100.0
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
@@ -13,6 +24,10 @@ func _ready() -> void:
 
 	set_color(dna.get_gene(DNA.GeneType.COAT).get_color())
 	set_size(dna.get_gene(DNA.GeneType.SIZE).get_scale())
+
+
+func _physics_process(_delta: float) -> void:
+	move_and_slide()
 
 
 func set_color(color: Color) -> void:
