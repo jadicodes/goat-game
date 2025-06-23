@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://cquhif3oogil8"]
 
 [ext_resource type="Script" uid="uid://cwrc72jas37aa" path="res://goat/goat.gd" id="1_whs48"]
-[ext_resource type="Texture2D" uid="uid://cbg5o6lbqy0kq" path="res://goat/goat.png" id="1_xuyku"]
 [ext_resource type="Script" uid="uid://b7wqoe5ijbaoy" path="res://dna/gene.gd" id="2_xaleg"]
 [ext_resource type="Script" uid="uid://bitugm2ihmuda" path="res://dna/dna.gd" id="3_l0vm7"]
+[ext_resource type="Texture2D" uid="uid://b37k3xd0n13lf" path="res://goat/goat_sprite.png" id="4_xcji4"]
 [ext_resource type="Script" uid="uid://dwxhny1t5uu8p" path="res://state_machine/state_machine.gd" id="5_lkuck"]
 [ext_resource type="Script" uid="uid://w3ed86w0wx8q" path="res://goat/state_machine/idle.gd" id="6_xcji4"]
 [ext_resource type="Script" uid="uid://da6bp4lfb6i1f" path="res://goat/state_machine/wander.gd" id="7_d2nyf"]
@@ -15,14 +15,14 @@ genes = Dictionary[int, ExtResource("2_xaleg")]({})
 metadata/_custom_type_script = "uid://bitugm2ihmuda"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_whs48"]
-radius = 200.0
+radius = 48.0
 
 [node name="Goat" type="CharacterBody2D"]
 script = ExtResource("1_whs48")
 dna = SubResource("Resource_8plan")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_xuyku")
+texture = ExtResource("4_xcji4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_whs48")

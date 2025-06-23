@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cqdu4npym77hm"]
 
 [ext_resource type="Script" uid="uid://dm2umt83y7wau" path="res://farmer/farmer.gd" id="1_7h16g"]
-[ext_resource type="Texture2D" uid="uid://c8tynnydekttg" path="res://icon.svg" id="1_x4j2v"]
+[ext_resource type="Texture2D" uid="uid://sqj3sppvhpj6" path="res://farmer/farmer_sprite.png" id="2_7h16g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7h16g"]
 radius = 64.0
@@ -13,7 +13,8 @@ radius = 48.0
 script = ExtResource("1_7h16g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_x4j2v")
+position = Vector2(0, -64)
+texture = ExtResource("2_7h16g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7h16g")
