@@ -1,0 +1,56 @@
+[gd_scene load_steps=12 format=3 uid="uid://dircmh8bpxfv7"]
+
+[ext_resource type="Script" uid="uid://7cnn8nna2ipi" path="res://shopper/shopper.gd" id="1_jyoi8"]
+[ext_resource type="Texture2D" uid="uid://c8tynnydekttg" path="res://icon.svg" id="1_wbdm7"]
+[ext_resource type="Script" uid="uid://dwxhny1t5uu8p" path="res://state_machine/state_machine.gd" id="3_3r4rk"]
+[ext_resource type="Script" uid="uid://bk6gvoey2vghv" path="res://shopper/state_machine/shopper_enter_state.gd" id="4_ldiyr"]
+[ext_resource type="Script" uid="uid://b5eomeosf38qx" path="res://shopper/state_machine/shopper_arrive_at_fence_state.gd" id="5_gm5io"]
+[ext_resource type="Script" uid="uid://tduokifq3f63" path="res://shopper/state_machine/shopper_give_order_state.gd" id="6_avbde"]
+[ext_resource type="Script" uid="uid://nynyskejyqqq" path="res://shopper/state_machine/shopper_wait_for_order_state.gd" id="7_gio20"]
+[ext_resource type="Script" uid="uid://br10dlbcc66pk" path="res://shopper/state_machine/shopper_order_success_state.gd" id="8_aacoh"]
+[ext_resource type="Script" uid="uid://lp8jgnqyfb0p" path="res://shopper/state_machine/shopper_order_failure_state.gd" id="9_7ghlq"]
+[ext_resource type="Script" uid="uid://7gpa3vhl8il4" path="res://shopper/state_machine/shopper_leave_state.gd" id="10_t18g1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jyoi8"]
+radius = 65.0308
+
+[node name="Shopper" type="CharacterBody2D"]
+script = ExtResource("1_jyoi8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_wbdm7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jyoi8")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_3r4rk")
+metadata/_custom_type_script = "uid://dwxhny1t5uu8p"
+
+[node name="ShopperEnterState" type="Node" parent="StateMachine"]
+script = ExtResource("4_ldiyr")
+metadata/_custom_type_script = "uid://bk6gvoey2vghv"
+
+[node name="ShopperArriveAtFenceState" type="Node" parent="StateMachine"]
+script = ExtResource("5_gm5io")
+metadata/_custom_type_script = "uid://b5eomeosf38qx"
+
+[node name="ShopperGiveOrderState" type="Node" parent="StateMachine"]
+script = ExtResource("6_avbde")
+metadata/_custom_type_script = "uid://tduokifq3f63"
+
+[node name="ShopperWaitForOrderState" type="Node" parent="StateMachine"]
+script = ExtResource("7_gio20")
+metadata/_custom_type_script = "uid://nynyskejyqqq"
+
+[node name="ShopperOrderSuccessState" type="Node" parent="StateMachine"]
+script = ExtResource("8_aacoh")
+metadata/_custom_type_script = "uid://br10dlbcc66pk"
+
+[node name="ShopperOrderFailureState" type="Node" parent="StateMachine"]
+script = ExtResource("9_7ghlq")
+metadata/_custom_type_script = "uid://lp8jgnqyfb0p"
+
+[node name="ShopperLeaveState" type="Node" parent="StateMachine"]
+script = ExtResource("10_t18g1")
+metadata/_custom_type_script = "uid://7gpa3vhl8il4"
