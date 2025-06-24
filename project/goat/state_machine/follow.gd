@@ -19,3 +19,7 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 
 func update(_delta: float) -> void:
 	goat.velocity = (target.position - goat.position).normalized() * goat.speed
+
+	if goat.position.distance_to(target.position) < target_distance:
+		goat.velocity = Vector2.ZERO
+
