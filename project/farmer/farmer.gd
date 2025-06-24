@@ -25,17 +25,30 @@ func attempt_interact() -> void:
 	var hit = hit_box.get_overlapping_bodies()
 
 	# TODO: Deal with multiple overlapping bodies
-	if hit.size() > 0:
-		for body in hit:
-			if body.has_method("interact"):
-				if body is Goat:
-					_following_goats.append(body)
-					print("Following goats: ", _following_goats)
-				print(self.name, " interacting with ", body.name)
-				body.interact(self)
-				return
+	if hit.is_empty():
+		print("No interactable objects nearby.")
+		return
 
-	print("No interactable objects nearby.")
+	for body in hit:
+		if not body.has_method("interact"):
+			continue
+
+		if body is Goat:
+			if body in _following_goats:
+				_following_goats.erase(body)
+				body.state_machine.transition_to_next_state(GoatState.IDLE)
+				return
+			elif _following_goats.size() >= 2:
+				print("Already two goats following, cannot follow more.")
+				return
+			else:
+				_following_goats.append(body)
+			print("Following goats: ", _following_goats)
+
+		print(self.name, " interacting with ", body.name)
+		body.interact(self)
+		return
+
 
 
 func _input(event: InputEvent) -> void:
@@ -45,3 +58,10 @@ func _input(event: InputEvent) -> void:
 
 func get_goats() -> Array[Goat]:
 	return _following_goats
+
+
+func empty_goats() -> Array[Goat]:
+	var following_goats := _following_goats.duplicate()
+	_following_goats.clear()
+
+	return following_goats

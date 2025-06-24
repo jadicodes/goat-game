@@ -8,10 +8,10 @@ func interact(caller: Node) -> void:
 	if not caller is Farmer:
 		return
 	
-	var _goats_entering_barn : Array[Goat] = caller.get_goats()
+	var _goats_entering_barn: Array[Goat] = caller.empty_goats()
 	if _goats_entering_barn.size() == 2:
 		_breed(_goats_entering_barn[0], _goats_entering_barn[1])
-	if _goats_entering_barn.size() == 1:
+	elif _goats_entering_barn.size() == 1:
 		_sacrifice(_goats_entering_barn[0])
 	else:
 		_go_to_sleep()

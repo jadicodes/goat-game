@@ -7,3 +7,6 @@ func _breed(goat1: Goat, goat2: Goat) -> void:
 	new_goat.global_position = get_viewport().size / 2
 	get_tree().get_root().add_child(new_goat)
 	print("Making a sweet angel goat")
+
+	goat1.state_machine.transition_to_next_state(GoatState.IDLE)
+	goat2.state_machine.transition_to_next_state(GoatState.IDLE)
