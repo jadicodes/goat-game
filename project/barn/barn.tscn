@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://mcq4epvbauin"]
+[gd_scene load_steps=4 format=3 uid="uid://mcq4epvbauin"]
 
 [ext_resource type="Texture2D" uid="uid://c8tynnydekttg" path="res://icon.svg" id="1_qwbcp"]
 [ext_resource type="PackedScene" uid="uid://det3pk5b77cx5" path="res://barn/barn_door.tscn" id="2_slllp"]
+[ext_resource type="Script" uid="uid://dh4y7uv31q3oi" path="res://barn/goat_breeder.gd" id="3_02c0v"]
 
 [node name="Barn" type="Node2D"]
 
@@ -10,5 +11,10 @@ position = Vector2(960, 0)
 scale = Vector2(15, 2)
 texture = ExtResource("1_qwbcp")
 
-[node name="BarnDoor" parent="." instance=ExtResource("2_slllp")]
+[node name="BarnDoor" parent="." node_paths=PackedStringArray("_goat_breeder") instance=ExtResource("2_slllp")]
 position = Vector2(964, 64)
+_goat_breeder = NodePath("../GoatBreeder")
+
+[node name="GoatBreeder" type="Node" parent="."]
+script = ExtResource("3_02c0v")
+metadata/_custom_type_script = "uid://dh4y7uv31q3oi"

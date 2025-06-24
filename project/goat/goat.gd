@@ -1,6 +1,8 @@
 class_name Goat
 extends CharacterBody2D
 
+const GOAT_SCENE = preload("res://goat/goat.tscn")
+
 @export var dna: DNA
 
 @export var speed: float = 100.0
@@ -11,12 +13,7 @@ extends CharacterBody2D
 
 
 func _ready() -> void:
-	dna = DNA.new()
-
-	dna.get_gene(DNA.GeneType.COAT).set_value(CoatGene.Allele.BROWN if randi() % 2 == 0 else CoatGene.Allele.BLACK)
-
-	set_color(dna.get_gene(DNA.GeneType.COAT).get_color())
-	set_size(dna.get_gene(DNA.GeneType.SIZE).get_scale())
+	set_dna()
 
 
 func _physics_process(_delta: float) -> void:
@@ -38,3 +35,19 @@ func interact(caller: Node) -> void:
 	state_machine.transition_to_next_state(GoatState.FOLLOW, {
 		"target": caller
 	})
+
+func set_dna(new_dna: DNA = null) -> void:
+	if new_dna:
+		dna = new_dna
+	
+	if not dna:
+		dna = DNA.new()
+	
+	set_color.call_deferred(dna.get_gene(DNA.GeneType.COAT).get_color())
+	set_size.call_deferred(dna.get_gene(DNA.GeneType.SIZE).get_scale())
+
+
+static func create(new_dna: DNA):
+	var new_goat = GOAT_SCENE.instantiate()
+	new_goat.set_dna(new_dna)
+	return new_goat

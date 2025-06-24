@@ -9,7 +9,7 @@
 [node name="Barn" parent="." instance=ExtResource("1_ukrf4")]
 
 [node name="Farmer" parent="." instance=ExtResource("1_at1a1")]
-position = Vector2(894, 532)
+position = Vector2(892, 532)
 
 [node name="Goat" parent="." instance=ExtResource("2_qnc1y")]
 position = Vector2(390, 712)

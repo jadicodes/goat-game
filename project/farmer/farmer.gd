@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 @export var speed = 300
 
+var _following_goats: Array[Goat] = []
+
 @onready var hit_box: Area2D = $HitBox
 
 
@@ -26,6 +28,9 @@ func attempt_interact() -> void:
 	if hit.size() > 0:
 		for body in hit:
 			if body.has_method("interact"):
+				if body is Goat:
+					_following_goats.append(body)
+					print("Following goats: ", _following_goats)
 				print(self.name, " interacting with ", body.name)
 				body.interact(self)
 				return
@@ -36,3 +41,7 @@ func attempt_interact() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		attempt_interact()
+
+
+func get_goats() -> Array[Goat]:
+	return _following_goats
