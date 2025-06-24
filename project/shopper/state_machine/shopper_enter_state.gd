@@ -7,5 +7,5 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 
 	await get_tree().create_timer(5).timeout
 
-	shopper.state_machine.transition_to_next_state(ShopperState.LEAVE)
+	finished.emit(LEAVE)
 	# shopper.animation_player.play("run")
