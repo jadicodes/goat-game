@@ -17,6 +17,11 @@ enum Coat {
 }
 
 
+
+func get_default_value() -> Vector2i:
+	return Vector2i(Allele.values().pick_random(), Allele.values().pick_random())
+
+
 func get_type_enum() -> DNA.GeneType:
 	return DNA.GeneType.COAT
 

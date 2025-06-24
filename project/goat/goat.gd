@@ -3,9 +3,9 @@ extends CharacterBody2D
 
 const GOAT_SCENE = preload("res://goat/goat.tscn")
 
-@export var dna: DNA
-
 @export var speed: float = 100.0
+
+var dna: DNA
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
@@ -40,14 +40,14 @@ func set_dna(new_dna: DNA = null) -> void:
 	if new_dna:
 		dna = new_dna
 	
-	if not dna:
+	if dna == null:
 		dna = DNA.new()
 	
 	set_color.call_deferred(dna.get_gene(DNA.GeneType.COAT).get_color())
 	set_size.call_deferred(dna.get_gene(DNA.GeneType.SIZE).get_scale())
 
 
-static func create(new_dna: DNA):
+static func create(new_dna: DNA) -> Goat:
 	var new_goat = GOAT_SCENE.instantiate()
 	new_goat.set_dna(new_dna)
 	return new_goat

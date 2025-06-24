@@ -18,13 +18,13 @@ func interact(caller: Node) -> void:
 	print("Interacting with the barn door.")
 
 
-func _breed(goat1, goat2):
+func _breed(goat1: Goat, goat2: Goat) -> void:
 	_goat_breeder._breed(goat1, goat2)
 
 
-func _sacrifice(goat):
+func _sacrifice(goat: Goat) -> void:
 	pass
 
 
-func _go_to_sleep():
+func _go_to_sleep() -> void:
 	pass
