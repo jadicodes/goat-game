@@ -24,4 +24,4 @@ position = Vector2(390, 712)
 position = Vector2(1508, 528)
 
 [node name="Shopper" parent="." instance=ExtResource("4_72csm")]
-position = Vector2(605, 471)
+position = Vector2(2252, 693)
