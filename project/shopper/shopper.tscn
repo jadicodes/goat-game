@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://dircmh8bpxfv7"]
 
 [ext_resource type="Script" uid="uid://7cnn8nna2ipi" path="res://shopper/shopper.gd" id="1_jyoi8"]
-[ext_resource type="Texture2D" uid="uid://c8tynnydekttg" path="res://icon.svg" id="1_wbdm7"]
+[ext_resource type="Texture2D" uid="uid://d3ychibtxju4a" path="res://shopper/cultist_sprite.png" id="2_ldiyr"]
 [ext_resource type="Script" uid="uid://dwxhny1t5uu8p" path="res://state_machine/state_machine.gd" id="3_3r4rk"]
 [ext_resource type="Script" uid="uid://bk6gvoey2vghv" path="res://shopper/state_machine/shopper_enter_state.gd" id="4_ldiyr"]
 [ext_resource type="Script" uid="uid://b5eomeosf38qx" path="res://shopper/state_machine/shopper_arrive_at_fence_state.gd" id="5_gm5io"]
@@ -19,7 +19,8 @@ collision_layer = 4
 script = ExtResource("1_jyoi8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_wbdm7")
+scale = Vector2(-1, 1)
+texture = ExtResource("2_ldiyr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_jyoi8")
