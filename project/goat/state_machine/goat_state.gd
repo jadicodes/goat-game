@@ -4,6 +4,7 @@ extends State
 const IDLE = "GoatIdleState"
 const WANDER = "GoatWanderState"
 const FOLLOW = "GoatFollowState"
+const ENTER_DOOR = "GoatEnterDoorState"
 
 var goat: Goat
 

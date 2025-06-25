@@ -20,6 +20,10 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 	timer.start()
 
 
+func update(_delta: float) -> void:
+	goat.velocity = Vector2.ZERO
+
+
 func _on_timer_timeout() -> void:
 	finished.emit(WANDER)
 

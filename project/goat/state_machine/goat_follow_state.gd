@@ -2,8 +2,9 @@ class_name GoatFollowState
 extends GoatState
 
 
+const FOLLOW_DISTANCE := 256.0
+
 var target: Node2D
-var target_distance: float = 128.0
 
 func enter(_previous_state_path: String, _data := {}) -> void:
 	if _data.has("target"):
@@ -20,6 +21,13 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 func update(_delta: float) -> void:
 	goat.velocity = (target.position - goat.position).normalized() * goat.speed
 
-	if goat.position.distance_to(target.position) < target_distance:
-		goat.velocity = Vector2.ZERO
+	if goat.position.distance_to(target.position) > FOLLOW_DISTANCE:
+		return
+
+	goat.velocity = Vector2.ZERO
+
+	if target is BarnDoor:
+		finished.emit(ENTER_DOOR, {
+			"door": target
+		})
 
