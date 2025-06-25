@@ -27,6 +27,12 @@ func get_gene(gene_type: GeneType) -> Gene:
 	return genes.get(gene_type)
 
 
+static func get_gene_class(gene_type: GeneType) -> GDScript:
+	if not GeneClass.has(gene_type):
+		return null
+	return GeneClass[gene_type]
+
+
 static func combine(a: DNA, b: DNA) -> DNA:
 	var new_dna = DNA.new()
 

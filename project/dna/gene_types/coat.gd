@@ -7,7 +7,7 @@ enum Allele {
 	BLACK,
 }
 
-enum Coat {
+enum Phenotype {
 	WHITE,
 	BROWN,
 	BLACK,
@@ -26,44 +26,48 @@ func get_type_enum() -> DNA.GeneType:
 	return DNA.GeneType.COAT
 
 
-func get_coat() -> Coat:
+func get_phenotype() -> Phenotype:
 	# TODO: Ignore allele order
 	match value:
 		Vector2i(Allele.WHITE, Allele.WHITE):
-			return Coat.WHITE
+			return Phenotype.WHITE
 		Vector2i(Allele.BROWN, Allele.BROWN):
-			return Coat.BROWN
+			return Phenotype.BROWN
 		Vector2i(Allele.BLACK, Allele.BLACK):
-			return Coat.BLACK
+			return Phenotype.BLACK
 		Vector2i(Allele.WHITE, Allele.BROWN):
-			return Coat.LIGHT_BROWN
+			return Phenotype.LIGHT_BROWN
 		Vector2i(Allele.BROWN, Allele.WHITE):
-			return Coat.LIGHT_BROWN
+			return Phenotype.LIGHT_BROWN
 		Vector2i(Allele.BROWN, Allele.BLACK):
-			return Coat.DARK_BROWN
+			return Phenotype.DARK_BROWN
 		Vector2i(Allele.BLACK, Allele.BROWN):
-			return Coat.DARK_BROWN
+			return Phenotype.DARK_BROWN
 		Vector2i(Allele.WHITE, Allele.BLACK):
-			return Coat.GRAY
+			return Phenotype.GRAY
 		Vector2i(Allele.BLACK, Allele.WHITE):
-			return Coat.GRAY
+			return Phenotype.GRAY
 		_:
-			return Coat.WHITE  # Should never happen, but a default is needed
+			return Phenotype.WHITE  # Should never happen, but a default is needed
 
 
 func get_color() -> Color:
-	match get_coat():
-		Coat.WHITE:
+	match get_phenotype():
+		Phenotype.WHITE:
 			return Color(1, 1, 1)
-		Coat.BROWN:
+		Phenotype.BROWN:
 			return Color(0.5, 0.25, 0)
-		Coat.BLACK:
+		Phenotype.BLACK:
 			return Color(0.2, 0.2, 0.2)
-		Coat.LIGHT_BROWN:
+		Phenotype.LIGHT_BROWN:
 			return Color(0.75, 0.5, 0.25)
-		Coat.DARK_BROWN:
+		Phenotype.DARK_BROWN:
 			return Color(0.25, 0.125, 0)
-		Coat.GRAY:
+		Phenotype.GRAY:
 			return Color(0.5, 0.5, 0.5)
 		_:
 			return Color(1, 1, 1)  # Should never happen, but a default is needed
+
+
+static func get_random_phenotype() -> int:
+	return Phenotype.values().pick_random()

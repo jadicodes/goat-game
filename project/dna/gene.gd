@@ -25,6 +25,14 @@ func set_value(x: int, y: int = -1) -> void:
 	self.value = Vector2i(x, y)
 
 
+func get_phenotype() -> int:
+	return -1  # Default value, should be overridden in subclasses
+
+
+static func get_random_phenotype() -> int:
+	return -1  # Default value, should be overridden in subclasses
+
+
 static func combine(a: Gene, b: Gene) -> Gene:
 	assert(a.get_type_enum() == b.get_type_enum(), "Genes must be of the same type to combine")
 

@@ -6,7 +6,7 @@ enum Allele {
 	LARGE,
 }
 
-enum Size {
+enum Phenotype {
 	SMALL,
 	MEDIUM,
 	LARGE,
@@ -20,22 +20,22 @@ func get_type_enum() -> DNA.GeneType:
 	return DNA.GeneType.SIZE
 
 
-func get_size() -> Size:
+func get_phenotype() -> Phenotype:
 	if value == Vector2i(Allele.SMALL, Allele.SMALL):
-		return Size.SMALL
+		return Phenotype.SMALL
 	elif value == Vector2i(Allele.LARGE, Allele.LARGE):
-		return Size.LARGE
+		return Phenotype.LARGE
 
-	return Size.MEDIUM
+	return Phenotype.MEDIUM
 
 
 func get_scale() -> float:
-	match get_size():
-		Size.SMALL:
+	match get_phenotype():
+		Phenotype.SMALL:
 			return 0.5
-		Size.MEDIUM:
+		Phenotype.MEDIUM:
 			return 1.0
-		Size.LARGE:
+		Phenotype.LARGE:
 			return 1.5
 		_:
 			return 1.0  # Should never happen, but a default is needed
