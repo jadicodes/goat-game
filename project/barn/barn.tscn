@@ -13,6 +13,7 @@ texture = ExtResource("1_qwbcp")
 
 [node name="BarnDoor" parent="." node_paths=PackedStringArray("_goat_breeder") instance=ExtResource("2_slllp")]
 position = Vector2(964, 64)
+collision_layer = 5
 _goat_breeder = NodePath("../GoatBreeder")
 
 [node name="GoatBreeder" type="Node" parent="."]
