@@ -6,6 +6,7 @@ extends CharacterBody2D
 var _following_goats: Array[Goat] = []
 
 @onready var hit_cast: RayCast2D = %HitCast
+@onready var sprite: Sprite2D = $Sprite2D
 
 
 func _physics_process(_delta: float) -> void:
@@ -16,7 +17,10 @@ func _physics_process(_delta: float) -> void:
 	if dir != Vector2.ZERO:
 		velocity = velocity.normalized() * speed
 
-	look_at(global_position + velocity)
+	if dir.x != 0:
+		sprite.flip_h = dir.x > 0
+	
+	hit_cast.look_at(position + dir)
 
 	move_and_slide()
 
