@@ -72,3 +72,15 @@ offset_top = -33.0
 offset_right = 662.0
 offset_bottom = 7.0
 color = Color(0.652023, 0.384562, 0.317561, 1)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Fence"]
+z_index = -1
+position = Vector2(895, 121)
+shape = SubResource("RectangleShape2D_a1lvl")
+
+[node name="ColorRect" type="ColorRect" parent="Fence/CollisionShape2D4"]
+offset_left = -659.0
+offset_top = -33.0
+offset_right = 662.0
+offset_bottom = 7.0
+color = Color(0.652023, 0.384562, 0.317561, 1)
