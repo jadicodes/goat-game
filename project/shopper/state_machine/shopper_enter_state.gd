@@ -7,5 +7,5 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 
 	await get_tree().create_timer(5).timeout
 
-	finished.emit(LEAVE)
+	finished.emit(ARRIVE_AT_FENCE)
 	# shopper.animation_player.play("run")
