@@ -5,7 +5,7 @@ extends CharacterBody2D
 
 var _following_goats: Array[Goat] = []
 
-@onready var hit_box: Area2D = $HitBox
+@onready var hit_cast: RayCast2D = %HitCast
 
 
 func _physics_process(_delta: float) -> void:
@@ -22,32 +22,29 @@ func _physics_process(_delta: float) -> void:
 
 
 func attempt_interact() -> void:
-	var hit = hit_box.get_overlapping_bodies()
+	var hit := hit_cast.get_collider() as Node
 
-	# TODO: Deal with multiple overlapping bodies
-	if hit.is_empty():
+	if not hit or not hit.has_method("interact"):
 		print("No interactable objects nearby.")
 		return
 
-	for body in hit:
-		if not body.has_method("interact"):
-			continue
+	if hit is Goat:
+		var goat: Goat = hit
+		
+		if goat in _following_goats:
+			_following_goats.erase(goat)
+			goat.state_machine.transition_to_next_state(GoatState.IDLE)
+			return
 
-		if body is Goat:
-			if body in _following_goats:
-				_following_goats.erase(body)
-				body.state_machine.transition_to_next_state(GoatState.IDLE)
-				return
-			elif _following_goats.size() >= 2:
-				print("Already two goats following, cannot follow more.")
-				return
-			else:
-				_following_goats.append(body)
-			print("Following goats: ", _following_goats)
+		if _following_goats.size() >= 2:
+			print("Already two goats following, cannot follow more.")
+			return
+		
+		_following_goats.append(goat)
+		print("Following goats: ", _following_goats)
 
-		print(self.name, " interacting with ", body.name)
-		body.interact(self)
-		return
+	print(self.name, " interacting with ", hit.name)
+	hit.interact(self)
 
 
 
