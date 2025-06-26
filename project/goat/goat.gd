@@ -7,6 +7,7 @@ const GOAT_FRONT_SPRITE = preload("res://goat/goat_sprite.png")
 const GOAT_BACK_SPRITE = preload("res://goat/goat_sprite_back.png")
 
 @export var speed: float = 100.0
+@export var _coat_alleles := Vector2i(-1, -1)
 
 var dna: DNA
 
@@ -62,6 +63,9 @@ func set_dna(new_dna: DNA = null) -> void:
 	
 	if dna == null:
 		dna = DNA.new()
+
+		if _coat_alleles != Vector2i(-1, -1):
+			dna.get_gene(DNA.GeneType.COAT).set_value(_coat_alleles.x, _coat_alleles.y)
 	
 	set_color.call_deferred(dna.get_gene(DNA.GeneType.COAT).get_color())
 	set_size.call_deferred(dna.get_gene(DNA.GeneType.SIZE).get_scale())
