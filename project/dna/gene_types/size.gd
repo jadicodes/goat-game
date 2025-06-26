@@ -21,10 +21,11 @@ func get_type_enum() -> DNA.GeneType:
 
 
 func get_phenotype() -> Phenotype:
-	if value == Vector2i(Allele.SMALL, Allele.SMALL):
-		return Phenotype.SMALL
-	elif value == Vector2i(Allele.LARGE, Allele.LARGE):
-		return Phenotype.LARGE
+	match value:
+		Vector2i(Allele.SMALL, Allele.SMALL):
+			return Phenotype.SMALL
+		Vector2i(Allele.LARGE, Allele.LARGE):
+			return Phenotype.LARGE
 
 	return Phenotype.MEDIUM
 

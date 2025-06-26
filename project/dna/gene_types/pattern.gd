@@ -26,21 +26,9 @@ func get_phenotype() -> Phenotype:
 			return Phenotype.STRIPED
 		Vector2i(Allele.SPOTTED, Allele.SPOTTED):
 			return Phenotype.SPOTTED
+		Vector2i(Allele.SOLID, Allele.STRIPED):
+			return Phenotype.SOLID
+		Vector2i(Allele.SOLID, Allele.SPOTTED):
+			return Phenotype.SOLID
 
-	if (
-		value == Vector2i(Allele.SOLID, Allele.STRIPED)
-		or value == Vector2i(Allele.STRIPED, Allele.SOLID)
-	):
-		return Phenotype.STRIPED
-	if (
-		value == Vector2i(Allele.SOLID, Allele.SPOTTED)
-		or value == Vector2i(Allele.SPOTTED, Allele.SOLID)
-	):
-		return Phenotype.SPOTTED
-
-	if value.x == Allele.STRIPED:
-		return Phenotype.STRIPED
-	if value.x == Allele.SPOTTED:
-		return Phenotype.SPOTTED
-
-	return Phenotype.SOLID  # Should never happen
+	return Phenotype.STRIPED  # Should never happen

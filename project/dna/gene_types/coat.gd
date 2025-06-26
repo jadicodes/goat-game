@@ -27,7 +27,6 @@ func get_type_enum() -> DNA.GeneType:
 
 
 func get_phenotype() -> Phenotype:
-	# TODO: Ignore allele order
 	match value:
 		Vector2i(Allele.WHITE, Allele.WHITE):
 			return Phenotype.WHITE
@@ -37,18 +36,14 @@ func get_phenotype() -> Phenotype:
 			return Phenotype.BLACK
 		Vector2i(Allele.WHITE, Allele.BROWN):
 			return Phenotype.LIGHT_BROWN
-		Vector2i(Allele.BROWN, Allele.WHITE):
-			return Phenotype.LIGHT_BROWN
 		Vector2i(Allele.BROWN, Allele.BLACK):
-			return Phenotype.DARK_BROWN
-		Vector2i(Allele.BLACK, Allele.BROWN):
 			return Phenotype.DARK_BROWN
 		Vector2i(Allele.WHITE, Allele.BLACK):
 			return Phenotype.GRAY
-		Vector2i(Allele.BLACK, Allele.WHITE):
-			return Phenotype.GRAY
 		_:
-			return Phenotype.WHITE  # Should never happen, but a default is needed
+			assert(false, "Invalid coat allele combination: %s" % value)
+
+	return Phenotype.WHITE  # Should never happen, but a return is needed
 
 
 func get_color() -> Color:

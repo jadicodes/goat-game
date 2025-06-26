@@ -22,6 +22,12 @@ func get_type_enum() -> DNA.GeneType:
 func set_value(x: int, y: int = -1) -> void:
 	if y == -1:
 		y = x  # If y is not provided, set it equal to x
+
+	if x > y:
+		var temp = x
+		x = y
+		y = temp 
+
 	self.value = Vector2i(x, y)
 
 
@@ -43,8 +49,11 @@ static func combine(a: Gene, b: Gene) -> Gene:
 	if b == null:
 		b = gene_type.new()
 
-	var new_value = Vector2i(
-		a.value.x if randi() % 2 == 0 else a.value.y, b.value.x if randi() % 2 == 0 else b.value.y
+	var new_gene: Gene = gene_type.new()
+
+	new_gene.set_value(
+		a.value.x if randi() % 2 == 0 else a.value.y,
+		b.value.x if randi() % 2 == 0 else b.value.y
 	)
 
-	return gene_type.new(new_value)
+	return new_gene
