@@ -1,6 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cquhif3oogil8"]
+[gd_scene load_steps=11 format=3 uid="uid://cquhif3oogil8"]
 
 [ext_resource type="Script" uid="uid://cwrc72jas37aa" path="res://goat/goat.gd" id="1_whs48"]
+[ext_resource type="Script" uid="uid://d20spc7xxot7" path="res://directional_sprite/directional_sprite.gd" id="2_d2nyf"]
+[ext_resource type="Texture2D" uid="uid://drg48rpojyljm" path="res://goat/goat_sprite_back.png" id="4_rf04r"]
 [ext_resource type="Texture2D" uid="uid://b37k3xd0n13lf" path="res://goat/goat_sprite.png" id="4_xcji4"]
 [ext_resource type="Script" uid="uid://dwxhny1t5uu8p" path="res://state_machine/state_machine.gd" id="5_lkuck"]
 [ext_resource type="Script" uid="uid://w3ed86w0wx8q" path="res://goat/state_machine/goat_idle_state.gd" id="6_xcji4"]
@@ -16,8 +18,15 @@ collision_layer = 6
 collision_mask = 8
 script = ExtResource("1_whs48")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("4_xcji4")
+[node name="DirectionalSprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("4_rf04r")
+script = ExtResource("2_d2nyf")
+_sprite_front = ExtResource("4_xcji4")
+_sprite_back = ExtResource("4_rf04r")
+_front_flipped = null
+_back_flipped = true
+metadata/_custom_type_script = "uid://d20spc7xxot7"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_whs48")

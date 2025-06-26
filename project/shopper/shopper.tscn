@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dircmh8bpxfv7"]
+[gd_scene load_steps=15 format=3 uid="uid://dircmh8bpxfv7"]
 
 [ext_resource type="Script" uid="uid://7cnn8nna2ipi" path="res://shopper/shopper.gd" id="1_jyoi8"]
 [ext_resource type="Texture2D" uid="uid://d3ychibtxju4a" path="res://shopper/cultist_sprite.png" id="2_ldiyr"]
@@ -10,7 +10,8 @@
 [ext_resource type="Script" uid="uid://br10dlbcc66pk" path="res://shopper/state_machine/shopper_order_success_state.gd" id="8_aacoh"]
 [ext_resource type="Script" uid="uid://lp8jgnqyfb0p" path="res://shopper/state_machine/shopper_order_failure_state.gd" id="9_7ghlq"]
 [ext_resource type="Script" uid="uid://7gpa3vhl8il4" path="res://shopper/state_machine/shopper_leave_state.gd" id="10_t18g1"]
-[ext_resource type="Script" uid="uid://b7q5g2qn104n3" path="res://shopper/speech_bubble.gd" id="11_gm5io"]
+[ext_resource type="Script" uid="uid://d20spc7xxot7" path="res://directional_sprite/directional_sprite.gd" id="11_gm5io"]
+[ext_resource type="Script" path="res://shopper/speech_bubble.gd" id="12_avbde"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jyoi8"]
 radius = 65.0308
@@ -26,9 +27,14 @@ corner_radius_bottom_left = 8
 collision_layer = 4
 script = ExtResource("1_jyoi8")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(-1, 1)
+[node name="DirectionalSprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_ldiyr")
+script = ExtResource("11_gm5io")
+_sprite_front = ExtResource("2_ldiyr")
+_sprite_back = ExtResource("2_ldiyr")
+_front_flipped = true
+_back_flipped = true
+metadata/_custom_type_script = "uid://d20spc7xxot7"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_jyoi8")
@@ -76,7 +82,7 @@ offset_bottom = -168.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_ldiyr")
-script = ExtResource("11_gm5io")
+script = ExtResource("12_avbde")
 
 [node name="Text" type="Label" parent="SpeechBubble"]
 unique_name_in_owner = true
