@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://botoiyyc2kyur"]
+[gd_scene load_steps=8 format=3 uid="uid://botoiyyc2kyur"]
 
+[ext_resource type="Texture2D" uid="uid://dedngjr1lli1" path="res://farm/field.png" id="1_a1lvl"]
 [ext_resource type="PackedScene" uid="uid://cqdu4npym77hm" path="res://farmer/farmer.tscn" id="1_at1a1"]
 [ext_resource type="PackedScene" uid="uid://mcq4epvbauin" path="res://barn/barn.tscn" id="1_ukrf4"]
 [ext_resource type="PackedScene" uid="uid://cquhif3oogil8" path="res://goat/goat.tscn" id="2_qnc1y"]
@@ -14,10 +15,16 @@ size = Vector2(1258, 37)
 [node name="Farm" type="Node2D"]
 y_sort_enabled = true
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 1936.0
-offset_bottom = 1088.0
-color = Color(0.230134, 0.402356, 0.187802, 1)
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Field" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_a1lvl")
 
 [node name="Barn" parent="." instance=ExtResource("1_ukrf4")]
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqdu4npym77hm"]
+[gd_scene load_steps=6 format=3 uid="uid://cqdu4npym77hm"]
 
 [ext_resource type="Script" uid="uid://dm2umt83y7wau" path="res://farmer/farmer.gd" id="1_7h16g"]
 [ext_resource type="Texture2D" uid="uid://sqj3sppvhpj6" path="res://farmer/farmer_sprite.png" id="2_7h16g"]
 [ext_resource type="Script" uid="uid://d20spc7xxot7" path="res://directional_sprite/directional_sprite.gd" id="2_vm3ej"]
+[ext_resource type="Texture2D" uid="uid://cqxdafnj0jnjq" path="res://farmer/farmer_sprite_back.png" id="4_d38dk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7h16g"]
 radius = 64.0
@@ -17,7 +18,7 @@ scale = Vector2(0.995026, 0.987494)
 texture = ExtResource("2_7h16g")
 script = ExtResource("2_vm3ej")
 _sprite_front = ExtResource("2_7h16g")
-_sprite_back = ExtResource("2_7h16g")
+_sprite_back = ExtResource("4_d38dk")
 metadata/_custom_type_script = "uid://d20spc7xxot7"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
