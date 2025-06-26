@@ -20,11 +20,10 @@ script = ExtResource("1_whs48")
 
 [node name="DirectionalSprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-texture = ExtResource("4_rf04r")
+texture = ExtResource("4_xcji4")
 script = ExtResource("2_d2nyf")
 _sprite_front = ExtResource("4_xcji4")
 _sprite_back = ExtResource("4_rf04r")
-_front_flipped = null
 _back_flipped = true
 metadata/_custom_type_script = "uid://d20spc7xxot7"
 

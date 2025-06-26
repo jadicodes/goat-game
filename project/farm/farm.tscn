@@ -27,6 +27,9 @@ position = Vector2(892, 532)
 [node name="Shopper" parent="." instance=ExtResource("4_72csm")]
 position = Vector2(1982, 736)
 
+[node name="Shopper2" parent="." instance=ExtResource("4_72csm")]
+position = Vector2(-182, 832)
+
 [node name="Goats" type="Node2D" parent="."]
 
 [node name="Goat1" parent="Goats" instance=ExtResource("2_qnc1y")]

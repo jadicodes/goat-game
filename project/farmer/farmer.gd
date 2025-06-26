@@ -16,7 +16,7 @@ func _physics_process(_delta: float) -> void:
 	if dir != Vector2.ZERO:
 		velocity = velocity.normalized() * speed
 	
-	hit_cast.look_at(position + dir)
+	hit_cast.look_at(hit_cast.global_position + dir)
 
 	move_and_slide()
 
