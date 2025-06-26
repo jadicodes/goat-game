@@ -40,3 +40,7 @@ func get_scale() -> float:
 			return 1.5
 		_:
 			return 1.0  # Should never happen, but a default is needed
+
+
+static func get_random_phenotype() -> int:
+	return Phenotype.values().pick_random()

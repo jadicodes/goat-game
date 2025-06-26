@@ -32,3 +32,7 @@ func get_phenotype() -> Phenotype:
 			return Phenotype.SOLID
 
 	return Phenotype.STRIPED  # Should never happen
+
+
+static func get_random_phenotype() -> int:
+	return Phenotype.values().pick_random()
