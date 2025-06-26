@@ -8,7 +8,7 @@ const GOAT_BACK_SPRITE = preload("res://goat/goat_sprite_back.png")
 
 @export var speed: float = 100.0
 
-var dna: DNA
+@export var dna: DNA
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D

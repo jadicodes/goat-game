@@ -12,7 +12,7 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 	
 	await get_tree().create_timer(1.0).timeout
 
-	print("SHOPPER: Order given to farmer: ", JSON.stringify(order_data, "\t"))
+	%SpeechBubble.display_text(DNA.get_gene_class(order_data.gene_type).Phenotype.keys()[order_data.phenotype])
 
 	finished.emit(WAIT_FOR_ORDER, {
 		"order_data": order_data

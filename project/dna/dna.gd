@@ -16,9 +16,9 @@ static var GeneClass = {
 @export var genes: Dictionary[GeneType, Gene] = {}
 
 
-func _init():
-	for gene_type in GeneType.values():
-		genes[gene_type] = GeneClass[gene_type].new()
+#func _init():
+	#for gene_type in GeneType.values():
+		#genes[gene_type] = GeneClass[gene_type].new()
 
 
 func get_gene(gene_type: GeneType) -> Gene:
