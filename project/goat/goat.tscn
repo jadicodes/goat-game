@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://dddkeim8irwlg" path="res://goat/state_machine/goat_follow_state.gd" id="8_xcji4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_whs48"]
-radius = 48.0
+radius = 55.0091
 
 [node name="Goat" type="CharacterBody2D"]
 collision_layer = 6
@@ -28,6 +28,7 @@ _back_flipped = true
 metadata/_custom_type_script = "uid://d20spc7xxot7"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_whs48")
 
 [node name="StateMachine" type="Node" parent="."]

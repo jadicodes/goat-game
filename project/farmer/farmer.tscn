@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cqxdafnj0jnjq" path="res://farmer/farmer_sprite_back.png" id="4_d38dk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7h16g"]
-radius = 64.0
+radius = 32.249
 
 [node name="Farmer" type="CharacterBody2D"]
 collision_mask = 9
@@ -22,6 +22,7 @@ _sprite_back = ExtResource("4_d38dk")
 metadata/_custom_type_script = "uid://d20spc7xxot7"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 32)
 shape = SubResource("CircleShape2D_7h16g")
 
 [node name="HitCast" type="RayCast2D" parent="."]

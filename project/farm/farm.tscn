@@ -1,16 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://botoiyyc2kyur"]
+[gd_scene load_steps=7 format=3 uid="uid://botoiyyc2kyur"]
 
 [ext_resource type="Texture2D" uid="uid://dedngjr1lli1" path="res://farm/field.png" id="1_a1lvl"]
 [ext_resource type="PackedScene" uid="uid://cqdu4npym77hm" path="res://farmer/farmer.tscn" id="1_at1a1"]
 [ext_resource type="PackedScene" uid="uid://mcq4epvbauin" path="res://barn/barn.tscn" id="1_ukrf4"]
 [ext_resource type="PackedScene" uid="uid://cquhif3oogil8" path="res://goat/goat.tscn" id="2_qnc1y"]
 [ext_resource type="PackedScene" uid="uid://dircmh8bpxfv7" path="res://shopper/shopper.tscn" id="4_72csm"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_72csm"]
-size = Vector2(53, 849.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a1lvl"]
-size = Vector2(1258, 37)
+[ext_resource type="PackedScene" uid="uid://dey06x3nhwoiq" path="res://farm/fence.tscn" id="6_mjpad"]
 
 [node name="Farm" type="Node2D"]
 y_sort_enabled = true
@@ -47,52 +42,4 @@ _coat_alleles = Vector2i(1, 1)
 position = Vector2(1319, 509)
 _coat_alleles = Vector2i(0, 2)
 
-[node name="Fence" type="StaticBody2D" parent="."]
-collision_layer = 9
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence"]
-position = Vector2(257, 553)
-shape = SubResource("RectangleShape2D_72csm")
-
-[node name="ColorRect" type="ColorRect" parent="Fence/CollisionShape2D"]
-offset_left = -21.0
-offset_top = -423.0
-offset_right = 19.0
-offset_bottom = 416.0
-color = Color(0.652023, 0.384562, 0.317561, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Fence"]
-position = Vector2(1573, 553)
-shape = SubResource("RectangleShape2D_72csm")
-
-[node name="ColorRect2" type="ColorRect" parent="Fence/CollisionShape2D2"]
-offset_left = -21.0
-offset_top = -425.0
-offset_right = 19.0
-offset_bottom = 414.0
-color = Color(0.652023, 0.384562, 0.317561, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Fence"]
-position = Vector2(918, 959)
-shape = SubResource("RectangleShape2D_a1lvl")
-
-[node name="ColorRect" type="ColorRect" parent="Fence/CollisionShape2D3"]
-offset_left = -659.0
-offset_top = -33.0
-offset_right = 662.0
-offset_bottom = 7.0
-color = Color(0.652023, 0.384562, 0.317561, 1)
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Fence"]
-z_index = -1
-position = Vector2(895, 121)
-shape = SubResource("RectangleShape2D_a1lvl")
-
-[node name="ColorRect" type="ColorRect" parent="Fence/CollisionShape2D4"]
-offset_left = -659.0
-offset_top = -33.0
-offset_right = 662.0
-offset_bottom = 7.0
-color = Color(0.652023, 0.384562, 0.317561, 1)
+[node name="Fence" parent="." instance=ExtResource("6_mjpad")]

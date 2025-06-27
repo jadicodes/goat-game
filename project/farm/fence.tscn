@@ -1,0 +1,149 @@
+[gd_scene load_steps=6 format=3 uid="uid://dey06x3nhwoiq"]
+
+[ext_resource type="Texture2D" uid="uid://c0chw05j3cd11" path="res://farm/fence_front.png" id="1_uuj8f"]
+[ext_resource type="Texture2D" uid="uid://dh4u3wmtgr76c" path="res://farm/fence_diagonal.png" id="2_83sj1"]
+[ext_resource type="Texture2D" uid="uid://bpo8h0dnajo7k" path="res://farm/fence_side.png" id="3_utdkg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cxgpr"]
+size = Vector2(12.25, 795.688)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dg0hf"]
+size = Vector2(1300, 28)
+
+[node name="Fence" type="StaticBody2D"]
+y_sort_enabled = true
+
+[node name="FenceFront" type="Sprite2D" parent="."]
+position = Vector2(351, 908)
+texture = ExtResource("1_uuj8f")
+
+[node name="FenceDiagonal" type="Sprite2D" parent="."]
+position = Vector2(266, 901)
+rotation = -3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("2_83sj1")
+
+[node name="FenceFront2" type="Sprite2D" parent="."]
+position = Vector2(459, 908)
+texture = ExtResource("1_uuj8f")
+
+[node name="FenceFront3" type="Sprite2D" parent="."]
+position = Vector2(568, 908)
+texture = ExtResource("1_uuj8f")
+
+[node name="FenceFront4" type="Sprite2D" parent="."]
+position = Vector2(678, 908)
+texture = ExtResource("1_uuj8f")
+
+[node name="FenceFront5" type="Sprite2D" parent="."]
+position = Vector2(787, 908)
+texture = ExtResource("1_uuj8f")
+
+[node name="FenceFront6" type="Sprite2D" parent="."]
+position = Vector2(895, 908)
+texture = ExtResource("1_uuj8f")
+
+[node name="FenceFront7" type="Sprite2D" parent="."]
+position = Vector2(1004, 908)
+texture = ExtResource("1_uuj8f")
+
+[node name="FenceFront8" type="Sprite2D" parent="."]
+position = Vector2(1114, 908)
+texture = ExtResource("1_uuj8f")
+
+[node name="FenceFront9" type="Sprite2D" parent="."]
+position = Vector2(1223, 908)
+texture = ExtResource("1_uuj8f")
+
+[node name="FenceFront10" type="Sprite2D" parent="."]
+position = Vector2(1331, 908)
+texture = ExtResource("1_uuj8f")
+
+[node name="FenceFront11" type="Sprite2D" parent="."]
+position = Vector2(1440, 908)
+texture = ExtResource("1_uuj8f")
+
+[node name="FenceDiagonal2" type="Sprite2D" parent="."]
+position = Vector2(1524, 901)
+texture = ExtResource("2_83sj1")
+
+[node name="FenceSide" type="Sprite2D" parent="."]
+position = Vector2(1561, 839)
+texture = ExtResource("3_utdkg")
+
+[node name="FenceSide2" type="Sprite2D" parent="."]
+position = Vector2(231, 737)
+texture = ExtResource("3_utdkg")
+
+[node name="FenceSide3" type="Sprite2D" parent="."]
+position = Vector2(232, 633)
+texture = ExtResource("3_utdkg")
+
+[node name="FenceSide4" type="Sprite2D" parent="."]
+position = Vector2(232, 530)
+texture = ExtResource("3_utdkg")
+
+[node name="FenceSide10" type="Sprite2D" parent="."]
+position = Vector2(232, 427)
+texture = ExtResource("3_utdkg")
+
+[node name="FenceSide11" type="Sprite2D" parent="."]
+position = Vector2(232, 324)
+texture = ExtResource("3_utdkg")
+
+[node name="FenceSide6" type="Sprite2D" parent="."]
+position = Vector2(231, 840)
+texture = ExtResource("3_utdkg")
+
+[node name="FenceSide7" type="Sprite2D" parent="."]
+position = Vector2(1561, 736)
+texture = ExtResource("3_utdkg")
+
+[node name="FenceSide8" type="Sprite2D" parent="."]
+position = Vector2(1562, 632)
+texture = ExtResource("3_utdkg")
+
+[node name="FenceSide9" type="Sprite2D" parent="."]
+position = Vector2(1562, 529)
+texture = ExtResource("3_utdkg")
+
+[node name="FenceSide5" type="Sprite2D" parent="."]
+position = Vector2(1563, 425)
+texture = ExtResource("3_utdkg")
+
+[node name="FenceSide12" type="Sprite2D" parent="."]
+position = Vector2(1563, 323)
+texture = ExtResource("3_utdkg")
+
+[node name="FenceSide13" type="Sprite2D" parent="."]
+position = Vector2(232, 220)
+texture = ExtResource("3_utdkg")
+
+[node name="FenceSide14" type="Sprite2D" parent="."]
+position = Vector2(1563, 219)
+texture = ExtResource("3_utdkg")
+
+[node name="FenceSide15" type="Sprite2D" parent="."]
+position = Vector2(232, 114)
+texture = ExtResource("3_utdkg")
+
+[node name="FenceSide16" type="Sprite2D" parent="."]
+position = Vector2(1563, 113)
+texture = ExtResource("3_utdkg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(232, 537)
+shape = SubResource("RectangleShape2D_cxgpr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(1563, 552)
+shape = SubResource("RectangleShape2D_cxgpr")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(897, 958)
+shape = SubResource("RectangleShape2D_dg0hf")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+z_index = -1
+position = Vector2(898, 98)
+shape = SubResource("RectangleShape2D_dg0hf")
