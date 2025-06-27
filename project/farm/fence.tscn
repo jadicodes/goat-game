@@ -12,6 +12,7 @@ size = Vector2(1300, 28)
 
 [node name="Fence" type="StaticBody2D"]
 y_sort_enabled = true
+collision_layer = 9
 
 [node name="FenceFront" type="Sprite2D" parent="."]
 position = Vector2(351, 908)
