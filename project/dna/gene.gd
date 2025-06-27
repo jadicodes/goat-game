@@ -26,7 +26,7 @@ func set_value(x: int, y: int = -1) -> void:
 	if x > y:
 		var temp = x
 		x = y
-		y = temp 
+		y = temp
 
 	self.value = Vector2i(x, y)
 
@@ -42,7 +42,7 @@ static func get_random_phenotype() -> int:
 static func combine(a: Gene, b: Gene) -> Gene:
 	assert(a.get_type_enum() == b.get_type_enum(), "Genes must be of the same type to combine")
 
-	var gene_type = DNA.GeneClass[a.get_type_enum()]
+	var gene_type = DNA.gene_class[a.get_type_enum()]
 
 	if a == null:
 		a = gene_type.new()
@@ -52,8 +52,7 @@ static func combine(a: Gene, b: Gene) -> Gene:
 	var new_gene: Gene = gene_type.new()
 
 	new_gene.set_value(
-		a.value.x if randi() % 2 == 0 else a.value.y,
-		b.value.x if randi() % 2 == 0 else b.value.y
+		a.value.x if randi() % 2 == 0 else a.value.y, b.value.x if randi() % 2 == 0 else b.value.y
 	)
 
 	return new_gene

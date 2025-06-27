@@ -24,7 +24,7 @@ func interact(caller: Node) -> void:
 	if not goats:
 		print("SHOPPER: No goats available!")
 		return
-	
+
 	for goat in goats:
 		var phenotype: int = goat.dna.get_gene(order_data.gene_type).get_phenotype()
 
@@ -34,6 +34,6 @@ func interact(caller: Node) -> void:
 			print("SHOPPER: Received order from farmer!")
 			finished.emit(ORDER_SUCCESS)
 			return
-	
+
 	print("SHOPPER: No matching goats found!")
 	finished.emit(ORDER_FAILURE)

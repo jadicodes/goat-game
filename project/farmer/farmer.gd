@@ -4,12 +4,12 @@ extends CharacterBody2D
 @export var speed = 300
 
 var _following_goats: Array[Goat] = []
-
-@onready var hit_cast: RayCast2D = %HitCast
 var _last_hovered: Node
 
+@onready var hit_cast: RayCast2D = %HitCast
 
-func _process(delta: float) -> void:
+
+func _process(_delta: float) -> void:
 	var collider = $HitCast.get_collider()
 
 	if collider != _last_hovered and _last_hovered:
@@ -22,6 +22,7 @@ func _process(delta: float) -> void:
 		collider.hover()
 		_last_hovered = collider
 
+
 func _physics_process(_delta: float) -> void:
 	var dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 
@@ -29,7 +30,7 @@ func _physics_process(_delta: float) -> void:
 
 	if dir != Vector2.ZERO:
 		velocity = velocity.normalized() * speed
-	
+
 	hit_cast.look_at(hit_cast.global_position + dir)
 
 	move_and_slide()
@@ -44,7 +45,7 @@ func attempt_interact() -> void:
 
 	if hit is Goat:
 		var goat: Goat = hit
-		
+
 		if goat in _following_goats:
 			_following_goats.erase(goat)
 			goat.state_machine.transition_to_next_state(GoatState.IDLE)
@@ -53,13 +54,12 @@ func attempt_interact() -> void:
 		if _following_goats.size() >= 2:
 			print("Already two goats following, cannot follow more.")
 			return
-		
+
 		_following_goats.append(goat)
 		print("Following goats: ", _following_goats)
 
 	print(self.name, " interacting with ", hit.name)
 	hit.interact(self)
-
 
 
 func _input(event: InputEvent) -> void:

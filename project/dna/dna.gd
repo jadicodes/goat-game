@@ -7,7 +7,7 @@ enum GeneType {
 	PATTERN,
 }
 
-static var GeneClass = {
+static var gene_class = {
 	GeneType.SIZE: SizeGene,
 	GeneType.COAT: CoatGene,
 	GeneType.PATTERN: PatternGene,
@@ -16,21 +16,16 @@ static var GeneClass = {
 @export var genes: Dictionary[GeneType, Gene] = {}
 
 
-#func _init():
-	#for gene_type in GeneType.values():
-		#genes[gene_type] = GeneClass[gene_type].new()
-
-
 func get_gene(gene_type: GeneType) -> Gene:
 	if not genes.has(gene_type):
-		genes[gene_type] = GeneClass[gene_type].new()
+		genes[gene_type] = gene_class[gene_type].new()
 	return genes.get(gene_type)
 
 
 static func get_gene_class(gene_type: GeneType) -> GDScript:
-	if not GeneClass.has(gene_type):
+	if not gene_class.has(gene_type):
 		return null
-	return GeneClass[gene_type]
+	return gene_class[gene_type]
 
 
 static func combine(a: DNA, b: DNA) -> DNA:

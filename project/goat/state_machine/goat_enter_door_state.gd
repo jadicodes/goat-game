@@ -1,7 +1,6 @@
 class_name GoatEnterDoorState
 extends GoatState
 
-
 var door: BarnDoor
 
 

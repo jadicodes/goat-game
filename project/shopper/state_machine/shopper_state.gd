@@ -15,7 +15,10 @@ var shopper: Shopper
 func _ready() -> void:
 	await owner.ready
 	shopper = owner as Shopper
-	assert(shopper != null, "The ShopperState state type must be used only in the shopper scene. It needs the owner to be a Shopper node.")
+	assert(
+		shopper != null,
+		"The ShopperState state type must be used only in the shopper scene. It needs the owner to be a Shopper node."
+	)
 
 
 func interact(_caller: Node) -> void:

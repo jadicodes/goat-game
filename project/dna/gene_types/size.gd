@@ -12,6 +12,7 @@ enum Phenotype {
 	LARGE,
 }
 
+
 func get_default_value() -> Vector2i:
 	return Vector2i(Allele.SMALL, Allele.LARGE)
 

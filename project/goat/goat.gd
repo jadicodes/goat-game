@@ -37,20 +37,19 @@ func interact(caller: Node) -> void:
 	if not caller is Farmer:
 		return
 
-	state_machine.transition_to_next_state(GoatState.FOLLOW, {
-		"target": caller
-	})
+	state_machine.transition_to_next_state(GoatState.FOLLOW, {"target": caller})
+
 
 func set_dna(new_dna: DNA = null) -> void:
 	if new_dna:
 		dna = new_dna
-	
+
 	if dna == null:
 		dna = DNA.new()
 
 		if _coat_alleles != Vector2i(-1, -1):
 			dna.get_gene(DNA.GeneType.COAT).set_value(_coat_alleles.x, _coat_alleles.y)
-	
+
 	set_color.call_deferred(dna.get_gene(DNA.GeneType.COAT).get_color())
 	set_size.call_deferred(dna.get_gene(DNA.GeneType.SIZE).get_scale())
 
@@ -59,7 +58,6 @@ static func create(new_dna: DNA) -> Goat:
 	var new_goat = GOAT_SCENE.instantiate()
 	new_goat.set_dna(new_dna)
 	return new_goat
-
 
 
 func hover() -> void:

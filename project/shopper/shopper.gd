@@ -1,7 +1,7 @@
 class_name Shopper
 extends CharacterBody2D
 
-var speed : int = 100
+var speed: int = 100
 
 @onready var state_machine: StateMachine = $StateMachine
 

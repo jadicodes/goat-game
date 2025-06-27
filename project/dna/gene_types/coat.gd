@@ -17,7 +17,6 @@ enum Phenotype {
 }
 
 
-
 func get_default_value() -> Vector2i:
 	return Vector2i(Allele.values().pick_random(), Allele.values().pick_random())
 

@@ -1,23 +1,23 @@
 class_name BarnDoor
 extends StaticBody2D
 
+@export var _goat_breeder: GoatBreeder
+
 var _goats: Array[Goat] = []
 var _summoned_goats: Array[Goat] = []
-
-@export var _goat_breeder : GoatBreeder
 
 
 func interact(caller: Node) -> void:
 	if not caller is Farmer:
 		return
-	
-	var _goats_entering_barn: Array[Goat] = caller.empty_goats()
 
-	if _goats_entering_barn.is_empty():
+	var goats_entering_barn: Array[Goat] = caller.empty_goats()
+
+	if goats_entering_barn.is_empty():
 		_go_to_sleep()
 		return
 
-	_summon_goats(_goats_entering_barn)
+	_summon_goats(goats_entering_barn)
 
 
 func add_goat(goat: Goat) -> void:
@@ -36,7 +36,7 @@ func add_goat(goat: Goat) -> void:
 		_breed(_goats[0], _goats[1])
 	else:
 		print("Too many goats in barn door, cannot process.")
-	
+
 	_goats = []
 	_summoned_goats = []
 
@@ -49,10 +49,9 @@ func _summon_goats(goats: Array[Goat]) -> void:
 	for goat in goats:
 		if not goat in _summoned_goats:
 			_summoned_goats.append(goat)
-			goat.state_machine.transition_to_next_state(GoatState.FOLLOW, {
-				"target": self
-			})
+			goat.state_machine.transition_to_next_state(GoatState.FOLLOW, {"target": self})
 			print("Summoned goat: ", goat.name)
+
 
 func _breed(goat1: Goat, goat2: Goat) -> void:
 	await _goat_breeder._breed(goat1, goat2)
