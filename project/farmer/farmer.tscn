@@ -13,21 +13,21 @@ collision_mask = 9
 script = ExtResource("1_7h16g")
 
 [node name="DirectionalSprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -64)
+position = Vector2(5.96046e-08, -7.62939e-06)
 scale = Vector2(0.995026, 0.987494)
 texture = ExtResource("2_7h16g")
+offset = Vector2(1.005, -97.2158)
 script = ExtResource("2_vm3ej")
 _sprite_front = ExtResource("2_7h16g")
 _sprite_back = ExtResource("4_d38dk")
 metadata/_custom_type_script = "uid://d20spc7xxot7"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 32)
 shape = SubResource("CircleShape2D_7h16g")
 
 [node name="HitCast" type="RayCast2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, -64)
+position = Vector2(1, -96)
 target_position = Vector2(148, 0)
 collision_mask = 4
 hit_from_inside = true

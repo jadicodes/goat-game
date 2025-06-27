@@ -32,6 +32,7 @@ script = ExtResource("1_whs48")
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_l80ky")
 texture = ExtResource("4_xcji4")
+offset = Vector2(0, -30)
 script = ExtResource("2_d2nyf")
 _sprite_front = ExtResource("4_xcji4")
 _sprite_back = ExtResource("4_rf04r")
@@ -39,7 +40,7 @@ _back_flipped = true
 metadata/_custom_type_script = "uid://d20spc7xxot7"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1)
+position = Vector2(0, -31)
 shape = SubResource("CircleShape2D_whs48")
 
 [node name="StateMachine" type="Node" parent="."]
