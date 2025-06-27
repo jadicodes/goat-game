@@ -26,6 +26,7 @@ func _physics_process(_delta: float) -> void:
 
 func set_color(color: Color) -> void:
 	sprite.modulate = color
+	sprite.material.set_shader_parameter("modulate_color", color)
 
 
 func set_size(new_scale: float) -> void:
@@ -58,3 +59,12 @@ static func create(new_dna: DNA) -> Goat:
 	var new_goat = GOAT_SCENE.instantiate()
 	new_goat.set_dna(new_dna)
 	return new_goat
+
+
+
+func hover() -> void:
+	%DirectionalSprite2D.material.set_shader_parameter("enabled", true)
+
+
+func stop_hover() -> void:
+	%DirectionalSprite2D.material.set_shader_parameter("enabled", false)

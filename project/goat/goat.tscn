@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cquhif3oogil8"]
+[gd_scene load_steps=13 format=3 uid="uid://cquhif3oogil8"]
 
 [ext_resource type="Script" uid="uid://cwrc72jas37aa" path="res://goat/goat.gd" id="1_whs48"]
 [ext_resource type="Script" uid="uid://d20spc7xxot7" path="res://directional_sprite/directional_sprite.gd" id="2_d2nyf"]
+[ext_resource type="Shader" uid="uid://gbw1pjqif6ic" path="res://goat/hover_outline.gdshader" id="2_rf04r"]
 [ext_resource type="Texture2D" uid="uid://drg48rpojyljm" path="res://goat/goat_sprite_back.png" id="4_rf04r"]
 [ext_resource type="Texture2D" uid="uid://b37k3xd0n13lf" path="res://goat/goat_sprite.png" id="4_xcji4"]
 [ext_resource type="Script" uid="uid://dwxhny1t5uu8p" path="res://state_machine/state_machine.gd" id="5_lkuck"]
@@ -9,6 +10,15 @@
 [ext_resource type="Script" uid="uid://da6bp4lfb6i1f" path="res://goat/state_machine/goat_wander_state.gd" id="7_d2nyf"]
 [ext_resource type="Script" uid="uid://bnuma0b8vnitc" path="res://goat/state_machine/goat_enter_door_state.gd" id="7_lkuck"]
 [ext_resource type="Script" uid="uid://dddkeim8irwlg" path="res://goat/state_machine/goat_follow_state.gd" id="8_xcji4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l80ky"]
+resource_local_to_scene = true
+shader = ExtResource("2_rf04r")
+shader_parameter/allow_out_of_bounds = true
+shader_parameter/outline_thickness = 4.0
+shader_parameter/outline_color = Color(0.329412, 0.333333, 0.423529, 1)
+shader_parameter/enabled = false
+shader_parameter/modulate_color = Color(0.190762, 0.190762, 0.190762, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_whs48"]
 radius = 55.0091
@@ -20,6 +30,7 @@ script = ExtResource("1_whs48")
 
 [node name="DirectionalSprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
+material = SubResource("ShaderMaterial_l80ky")
 texture = ExtResource("4_xcji4")
 script = ExtResource("2_d2nyf")
 _sprite_front = ExtResource("4_xcji4")
