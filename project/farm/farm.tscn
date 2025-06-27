@@ -22,18 +22,11 @@ grow_vertical = 2
 texture = ExtResource("1_a1lvl")
 
 [node name="Barn" parent="." instance=ExtResource("1_ukrf4")]
+position = Vector2(0, 155)
 
 [node name="Farmer" parent="." instance=ExtResource("1_at1a1")]
 y_sort_enabled = true
 position = Vector2(892, 532)
-
-[node name="Shopper" parent="." instance=ExtResource("4_72csm")]
-y_sort_enabled = true
-position = Vector2(1982, 736)
-
-[node name="Shopper2" parent="." instance=ExtResource("4_72csm")]
-y_sort_enabled = true
-position = Vector2(-182, 832)
 
 [node name="Goats" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -49,3 +42,11 @@ position = Vector2(1319, 509)
 _coat_alleles = Vector2i(0, 2)
 
 [node name="Fence" parent="." instance=ExtResource("6_mjpad")]
+
+[node name="Shopper" parent="." instance=ExtResource("4_72csm")]
+y_sort_enabled = true
+position = Vector2(1982, 736)
+
+[node name="Shopper2" parent="." instance=ExtResource("4_72csm")]
+y_sort_enabled = true
+position = Vector2(-182, 832)

@@ -1,17 +1,25 @@
 [gd_scene load_steps=4 format=3 uid="uid://det3pk5b77cx5"]
 
 [ext_resource type="Script" uid="uid://6id7nmtbv7pc" path="res://barn/barn_door.gd" id="1_cbndv"]
-[ext_resource type="Texture2D" uid="uid://c8tynnydekttg" path="res://icon.svg" id="1_vp0o4"]
+[ext_resource type="Texture2D" uid="uid://bbs705l7dwsvb" path="res://barn/barn_door.png" id="2_pfu8r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qwbcp"]
-size = Vector2(512, 128)
+size = Vector2(512, 255.5)
 
-[node name="BarnDoor" type="StaticBody2D"]
+[node name="BarnDoor" type="Area2D"]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
 script = ExtResource("1_cbndv")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-scale = Vector2(4, 1)
-texture = ExtResource("1_vp0o4")
+[node name="LeftDoor" type="Sprite2D" parent="."]
+position = Vector2(-127, 0.5)
+texture = ExtResource("2_pfu8r")
+
+[node name="RightDoor" type="Sprite2D" parent="."]
+position = Vector2(125, 0.5)
+texture = ExtResource("2_pfu8r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 62)
 shape = SubResource("RectangleShape2D_qwbcp")

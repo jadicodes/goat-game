@@ -13,6 +13,7 @@ const GOAT_BACK_SPRITE = preload("res://goat/goat_sprite_back.png")
 
 @onready var sprite: Sprite2D = %DirectionalSprite2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
+@onready var hit_box: Area2D = $HitBox
 @onready var state_machine: StateMachine = $StateMachine
 
 
@@ -63,6 +64,10 @@ static func create(new_dna: DNA) -> Goat:
 func hover() -> void:
 	%DirectionalSprite2D.material.set_shader_parameter("enabled", true)
 
+
+func _on_hit_box_area_entered(area:Area2D) -> void:
+	if state_machine.state.has_method("on_hit_box_area_entered"):
+		state_machine.state.on_hit_box_area_entered(area)
 
 func stop_hover() -> void:
 	%DirectionalSprite2D.material.set_shader_parameter("enabled", false)

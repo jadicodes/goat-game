@@ -1,163 +1,166 @@
-[gd_scene load_steps=6 format=3 uid="uid://dey06x3nhwoiq"]
+[gd_scene load_steps=8 format=3 uid="uid://dey06x3nhwoiq"]
 
 [ext_resource type="Texture2D" uid="uid://c0chw05j3cd11" path="res://farm/fence_front.png" id="1_uuj8f"]
 [ext_resource type="Texture2D" uid="uid://dh4u3wmtgr76c" path="res://farm/fence_diagonal.png" id="2_83sj1"]
 [ext_resource type="Texture2D" uid="uid://bpo8h0dnajo7k" path="res://farm/fence_side.png" id="3_utdkg"]
+[ext_resource type="Texture2D" uid="uid://b8jgfoaq1e1jp" path="res://farm/fence_post_one.png" id="5_cxgpr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cxgpr"]
-size = Vector2(12.25, 795.688)
+size = Vector2(12.25, 654)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dg0hf"]
-size = Vector2(1300, 28)
+size = Vector2(1179, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhmkf"]
+size = Vector2(154.671, 20)
 
 [node name="Fence" type="StaticBody2D"]
 y_sort_enabled = true
 collision_layer = 9
 
-[node name="FenceFront" type="Sprite2D" parent="."]
-position = Vector2(322, 972)
-texture = ExtResource("1_uuj8f")
-offset = Vector2(29, -64)
-
 [node name="FenceDiagonal" type="Sprite2D" parent="."]
-position = Vector2(247, 956)
+position = Vector2(451, 1004)
+rotation = -3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("2_83sj1")
+offset = Vector2(-19, -55)
+
+[node name="FenceDiagonal3" type="Sprite2D" parent="."]
+position = Vector2(389, 968)
 rotation = -3.14159
 scale = Vector2(1, -1)
 texture = ExtResource("2_83sj1")
 offset = Vector2(-19, -55)
 
 [node name="FenceFront2" type="Sprite2D" parent="."]
-position = Vector2(322, 972)
+position = Vector2(440, 1020)
 texture = ExtResource("1_uuj8f")
 offset = Vector2(137, -64)
 
 [node name="FenceFront3" type="Sprite2D" parent="."]
-position = Vector2(322, 972)
+position = Vector2(440, 1020)
 texture = ExtResource("1_uuj8f")
 offset = Vector2(246, -64)
 
 [node name="FenceFront4" type="Sprite2D" parent="."]
-position = Vector2(322, 972)
+position = Vector2(440, 1020)
 texture = ExtResource("1_uuj8f")
 offset = Vector2(356, -64)
 
 [node name="FenceFront5" type="Sprite2D" parent="."]
-position = Vector2(322, 972)
+position = Vector2(440, 1020)
 texture = ExtResource("1_uuj8f")
 offset = Vector2(465, -64)
 
 [node name="FenceFront6" type="Sprite2D" parent="."]
-position = Vector2(322, 972)
+position = Vector2(440, 1020)
 texture = ExtResource("1_uuj8f")
 offset = Vector2(573, -64)
 
 [node name="FenceFront7" type="Sprite2D" parent="."]
-position = Vector2(322, 972)
+position = Vector2(440, 1020)
 texture = ExtResource("1_uuj8f")
 offset = Vector2(682, -64)
 
 [node name="FenceFront8" type="Sprite2D" parent="."]
-position = Vector2(322, 972)
+position = Vector2(440, 1020)
 texture = ExtResource("1_uuj8f")
 offset = Vector2(792, -64)
 
 [node name="FenceFront9" type="Sprite2D" parent="."]
-position = Vector2(322, 972)
+position = Vector2(440, 1020)
 texture = ExtResource("1_uuj8f")
 offset = Vector2(901, -64)
 
-[node name="FenceFront10" type="Sprite2D" parent="."]
-position = Vector2(322, 972)
-texture = ExtResource("1_uuj8f")
-offset = Vector2(1009, -64)
-
-[node name="FenceFront11" type="Sprite2D" parent="."]
-position = Vector2(322, 972)
-texture = ExtResource("1_uuj8f")
-offset = Vector2(1118, -64)
-
 [node name="FenceDiagonal2" type="Sprite2D" parent="."]
-position = Vector2(247, 956)
+position = Vector2(170, 1007)
 texture = ExtResource("2_83sj1")
 offset = Vector2(1277, -55)
 
-[node name="FenceSide" type="Sprite2D" parent="."]
-position = Vector2(1561, 839)
-texture = ExtResource("3_utdkg")
+[node name="FenceDiagonal4" type="Sprite2D" parent="."]
+position = Vector2(233, 970)
+texture = ExtResource("2_83sj1")
+offset = Vector2(1277, -55)
 
 [node name="FenceSide2" type="Sprite2D" parent="."]
-position = Vector2(231, 737)
+position = Vector2(372, 851)
 texture = ExtResource("3_utdkg")
 
 [node name="FenceSide3" type="Sprite2D" parent="."]
-position = Vector2(232, 633)
+position = Vector2(373, 747)
 texture = ExtResource("3_utdkg")
 
 [node name="FenceSide4" type="Sprite2D" parent="."]
-position = Vector2(232, 530)
+position = Vector2(373, 644)
 texture = ExtResource("3_utdkg")
 
 [node name="FenceSide10" type="Sprite2D" parent="."]
-position = Vector2(232, 427)
+position = Vector2(373, 541)
 texture = ExtResource("3_utdkg")
 
 [node name="FenceSide11" type="Sprite2D" parent="."]
-position = Vector2(232, 324)
-texture = ExtResource("3_utdkg")
-
-[node name="FenceSide6" type="Sprite2D" parent="."]
-position = Vector2(231, 840)
+position = Vector2(373, 438)
 texture = ExtResource("3_utdkg")
 
 [node name="FenceSide7" type="Sprite2D" parent="."]
-position = Vector2(1561, 736)
+position = Vector2(1547, 850)
 texture = ExtResource("3_utdkg")
 
 [node name="FenceSide8" type="Sprite2D" parent="."]
-position = Vector2(1562, 632)
+position = Vector2(1548, 746)
 texture = ExtResource("3_utdkg")
 
 [node name="FenceSide9" type="Sprite2D" parent="."]
-position = Vector2(1562, 529)
+position = Vector2(1548, 643)
 texture = ExtResource("3_utdkg")
 
 [node name="FenceSide5" type="Sprite2D" parent="."]
-position = Vector2(1563, 425)
+position = Vector2(1549, 539)
 texture = ExtResource("3_utdkg")
 
 [node name="FenceSide12" type="Sprite2D" parent="."]
-position = Vector2(1563, 323)
+position = Vector2(1549, 437)
 texture = ExtResource("3_utdkg")
 
 [node name="FenceSide13" type="Sprite2D" parent="."]
-position = Vector2(232, 220)
+position = Vector2(373, 334)
 texture = ExtResource("3_utdkg")
 
 [node name="FenceSide14" type="Sprite2D" parent="."]
-position = Vector2(1563, 219)
+position = Vector2(1549, 333)
 texture = ExtResource("3_utdkg")
 
-[node name="FenceSide15" type="Sprite2D" parent="."]
-position = Vector2(232, 114)
-texture = ExtResource("3_utdkg")
+[node name="FencePostOne" type="Sprite2D" parent="."]
+position = Vector2(512, 956)
+texture = ExtResource("5_cxgpr")
 
-[node name="FenceSide16" type="Sprite2D" parent="."]
-position = Vector2(1563, 113)
-texture = ExtResource("3_utdkg")
+[node name="FencePostOne2" type="Sprite2D" parent="."]
+position = Vector2(1405, 956)
+texture = ExtResource("5_cxgpr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(232, 537)
+position = Vector2(373, 597.078)
 shape = SubResource("RectangleShape2D_cxgpr")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(1563, 552)
+position = Vector2(1549, 613)
 shape = SubResource("RectangleShape2D_cxgpr")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2(897, 958)
+position = Vector2(958.5, 1006)
 shape = SubResource("RectangleShape2D_dg0hf")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
+position = Vector2(439.993, 969.082)
+rotation = 0.553072
+shape = SubResource("RectangleShape2D_dhmkf")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="."]
+position = Vector2(1477, 970)
+rotation = -0.553269
+shape = SubResource("RectangleShape2D_dhmkf")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
 z_index = -1
-position = Vector2(898, 98)
+position = Vector2(959.5, 297)
 shape = SubResource("RectangleShape2D_dg0hf")

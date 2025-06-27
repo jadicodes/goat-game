@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cquhif3oogil8"]
+[gd_scene load_steps=14 format=3 uid="uid://cquhif3oogil8"]
 
 [ext_resource type="Script" uid="uid://cwrc72jas37aa" path="res://goat/goat.gd" id="1_whs48"]
 [ext_resource type="Script" uid="uid://d20spc7xxot7" path="res://directional_sprite/directional_sprite.gd" id="2_d2nyf"]
@@ -21,7 +21,10 @@ shader_parameter/enabled = false
 shader_parameter/modulate_color = Color(0.190762, 0.190762, 0.190762, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_whs48"]
-radius = 55.0091
+radius = 48.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rf04r"]
+radius = 68.0
 
 [node name="Goat" type="CharacterBody2D"]
 collision_layer = 6
@@ -40,7 +43,6 @@ _back_flipped = true
 metadata/_custom_type_script = "uid://d20spc7xxot7"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -31)
 shape = SubResource("CircleShape2D_whs48")
 
 [node name="StateMachine" type="Node" parent="."]
@@ -62,3 +64,13 @@ metadata/_custom_type_script = "uid://dddkeim8irwlg"
 [node name="GoatEnterDoorState" type="Node" parent="StateMachine"]
 script = ExtResource("7_lkuck")
 metadata/_custom_type_script = "uid://bnuma0b8vnitc"
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CircleShape2D_rf04r")
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]

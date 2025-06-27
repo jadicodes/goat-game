@@ -1,5 +1,5 @@
 class_name BarnDoor
-extends StaticBody2D
+extends Area2D
 
 @export var _goat_breeder: GoatBreeder
 
