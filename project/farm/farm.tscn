@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://botoiyyc2kyur"]
+[gd_scene load_steps=10 format=3 uid="uid://botoiyyc2kyur"]
 
 [ext_resource type="Texture2D" uid="uid://dedngjr1lli1" path="res://farm/field.png" id="1_a1lvl"]
 [ext_resource type="PackedScene" uid="uid://cqdu4npym77hm" path="res://farmer/farmer.tscn" id="1_at1a1"]
@@ -13,6 +13,8 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -47, 386, 0, 0, 0, 0, -53, 1109, 0, 0, 0, 0, 1939, 1105, 0, 0, 0, 0, 1941, 373)
 }
 point_count = 4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ol6uc"]
 
 [node name="Farm" type="Node2D"]
 y_sort_enabled = true
@@ -61,10 +63,11 @@ position = Vector2(-47, 386)
 rotation = 1.57909
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 35.0
+wait_time = 3.0
 autostart = true
 
 [node name="Shopper" parent="." instance=ExtResource("4_72csm")]
+material = SubResource("ShaderMaterial_ol6uc")
 position = Vector2(-70, 725)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
