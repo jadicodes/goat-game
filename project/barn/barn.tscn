@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://mcq4epvbauin"]
+[gd_scene load_steps=10 format=3 uid="uid://mcq4epvbauin"]
 
 [ext_resource type="Texture2D" uid="uid://cvugrcalq6hbr" path="res://barn/barn.png" id="1_02c0v"]
+[ext_resource type="Script" uid="uid://cvg1b4m41fa4a" path="res://barn/barn.gd" id="1_bhhye"]
 [ext_resource type="PackedScene" uid="uid://det3pk5b77cx5" path="res://barn/barn_door.tscn" id="2_slllp"]
 [ext_resource type="Script" uid="uid://dh4y7uv31q3oi" path="res://barn/goat_breeder.gd" id="3_02c0v"]
 [ext_resource type="Script" uid="uid://dk7rf8tgtv0bq" path="res://barn/barn_action/barn_action_conductor.gd" id="4_pjnw1"]
@@ -95,8 +96,10 @@ _data = {
 }
 
 [node name="Barn" type="Node2D"]
+script = ExtResource("1_bhhye")
 
 [node name="BarnActionConductor" type="Node" parent="." node_paths=PackedStringArray("goat_breeder")]
+unique_name_in_owner = true
 script = ExtResource("4_pjnw1")
 goat_breeder = NodePath("../GoatBreeder")
 metadata/_custom_type_script = "uid://dk7rf8tgtv0bq"

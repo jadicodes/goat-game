@@ -20,11 +20,16 @@ func interact(caller: Node) -> void:
 
 	var bundle := GoatBundle.new(self, goats)
 
+	var open_doors := _goats_to_bundles.size() == 0
+
 	for goat in goats:
 		assert(not goat in _goats_to_bundles, "Goat already in a bundle: " + goat.name)
 		_goats_to_bundles[goat] = bundle
 
 	bundle.complete.connect(_bundle_complete.bind(bundle))
+
+	if open_doors:
+		_animation_player.play("door_open")
 
 
 func add_goat(goat: Goat) -> void:
@@ -38,30 +43,37 @@ func add_goat(goat: Goat) -> void:
 	_goats_to_bundles[goat].add_goat(goat)
 	_goats_to_bundles.erase(goat)
 
+	if _goats_to_bundles.is_empty():
+		_animation_player.play_backwards("door_open")
+
 
 func _bundle_complete(bundle: GoatBundle) -> void:
 	_conductor.add_goats(bundle.get_goats())
 	bundle.complete.disconnect(_bundle_complete)
 
 
-func _go_to_sleep(farmer: Farmer) -> void:
-	farmer.visible = false
-
-	_animation_player.play("barn_sleep")
+func _go_to_sleep(farmer: Node2D) -> void:
+	_animation_player.play("door_open")
 
 	await _animation_player.animation_finished
 
-	_animation_player.play("barn_shake")
+	farmer.visible = false
 
-	await _conductor.activate_barn_actions()
+	_animation_player.play_backwards("door_open")
 
-	_animation_player.stop()
+	await _animation_player.animation_finished
 
-	_animation_player.play_backwards("barn_sleep")
+	await get_parent().go_to_sleep()
+
+	_animation_player.play("door_open")
 
 	await _animation_player.animation_finished
 
 	farmer.visible = true
+
+	_animation_player.play_backwards("door_open")
+
+	await _animation_player.animation_finished
 
 
 class GoatBundle extends RefCounted:
