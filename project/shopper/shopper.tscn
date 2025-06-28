@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://dircmh8bpxfv7"]
+[gd_scene load_steps=17 format=3 uid="uid://dircmh8bpxfv7"]
 
 [ext_resource type="Script" uid="uid://7cnn8nna2ipi" path="res://shopper/shopper.gd" id="1_jyoi8"]
+[ext_resource type="Shader" uid="uid://gbw1pjqif6ic" path="res://goat/hover_outline.gdshader" id="2_gio20"]
 [ext_resource type="Texture2D" uid="uid://d3ychibtxju4a" path="res://shopper/cultist_sprite.png" id="2_ldiyr"]
 [ext_resource type="Script" uid="uid://dwxhny1t5uu8p" path="res://state_machine/state_machine.gd" id="3_3r4rk"]
 [ext_resource type="Script" uid="uid://bk6gvoey2vghv" path="res://shopper/state_machine/shopper_enter_state.gd" id="4_ldiyr"]
@@ -13,8 +14,17 @@
 [ext_resource type="Script" uid="uid://d20spc7xxot7" path="res://directional_sprite/directional_sprite.gd" id="11_gm5io"]
 [ext_resource type="Script" uid="uid://b7q5g2qn104n3" path="res://shopper/speech_bubble.gd" id="12_avbde"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_jyoi8"]
-radius = 59.0085
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aacoh"]
+shader = ExtResource("2_gio20")
+shader_parameter/allow_out_of_bounds = true
+shader_parameter/outline_thickness = 4.0
+shader_parameter/outline_color = Color(0.148257, 0.00016995, 0.55775, 1)
+shader_parameter/enabled = false
+shader_parameter/modulate_color = Color(1, 1, 1, 1)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_avbde"]
+radius = 54.0
+height = 230.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ldiyr"]
 bg_color = Color(1, 1, 1, 1)
@@ -30,6 +40,8 @@ collision_mask = 5
 script = ExtResource("1_jyoi8")
 
 [node name="DirectionalSprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_aacoh")
 position = Vector2(-1, 126)
 texture = ExtResource("2_ldiyr")
 offset = Vector2(1, -126)
@@ -42,8 +54,8 @@ _back_flipped = true
 metadata/_custom_type_script = "uid://d20spc7xxot7"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 73)
-shape = SubResource("CircleShape2D_jyoi8")
+position = Vector2(0, 19)
+shape = SubResource("CapsuleShape2D_avbde")
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_3r4rk")

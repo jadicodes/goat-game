@@ -15,3 +15,11 @@ func interact(caller: Node) -> void:
 		return
 
 	state_machine.state.interact(caller)
+
+
+func hover() -> void:
+	%DirectionalSprite2D.material.set_shader_parameter("enabled", true)
+
+
+func stop_hover() -> void:
+	%DirectionalSprite2D.material.set_shader_parameter("enabled", false)
