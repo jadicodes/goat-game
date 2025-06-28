@@ -19,7 +19,3 @@ func _ready() -> void:
 		shopper != null,
 		"The ShopperState state type must be used only in the shopper scene. It needs the owner to be a Shopper node."
 	)
-
-
-func interact(_caller: Node) -> void:
-	pass

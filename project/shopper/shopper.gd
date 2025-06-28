@@ -11,10 +11,7 @@ func _physics_process(_delta: float) -> void:
 
 
 func interact(caller: Node) -> void:
-	if not caller is Farmer:
-		return
-
-	state_machine.state.interact(caller)
+	state_machine.interact(caller)
 
 
 func hover() -> void:

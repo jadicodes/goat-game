@@ -24,6 +24,13 @@ func update(_delta: float) -> void:
 	goat.velocity = Vector2.ZERO
 
 
+func interact(caller: Node) -> void:
+	if not caller is Farmer:
+		return
+
+	finished.emit(FOLLOW, {"target": caller})
+
+
 func _on_timer_timeout() -> void:
 	finished.emit(WANDER)
 

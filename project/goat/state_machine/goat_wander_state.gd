@@ -25,5 +25,12 @@ func _on_timer_timeout() -> void:
 	finished.emit(IDLE)
 
 
+func interact(caller: Node) -> void:
+	if not caller is Farmer:
+		return
+
+	finished.emit(FOLLOW, {"target": caller})
+
+
 func exit() -> void:
 	timer.stop()

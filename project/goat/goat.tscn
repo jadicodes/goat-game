@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://cquhif3oogil8"]
 
-[ext_resource type="Script" uid="uid://cwrc72jas37aa" path="res://goat/goat.gd" id="1_whs48"]
+[ext_resource type="Script" uid="uid://cwrc72jas37aa" path="res://goat/goat.gd" id="1_rf04r"]
 [ext_resource type="Script" uid="uid://d20spc7xxot7" path="res://directional_sprite/directional_sprite.gd" id="2_d2nyf"]
 [ext_resource type="Shader" uid="uid://gbw1pjqif6ic" path="res://hover_outline.gdshader" id="2_rf04r"]
 [ext_resource type="Texture2D" uid="uid://drg48rpojyljm" path="res://goat/goat_sprite_back.png" id="4_rf04r"]
@@ -8,8 +8,8 @@
 [ext_resource type="Script" uid="uid://dwxhny1t5uu8p" path="res://state_machine/state_machine.gd" id="5_lkuck"]
 [ext_resource type="Script" uid="uid://w3ed86w0wx8q" path="res://goat/state_machine/goat_idle_state.gd" id="6_xcji4"]
 [ext_resource type="Script" uid="uid://da6bp4lfb6i1f" path="res://goat/state_machine/goat_wander_state.gd" id="7_d2nyf"]
-[ext_resource type="Script" uid="uid://bnuma0b8vnitc" path="res://goat/state_machine/goat_enter_door_state.gd" id="7_lkuck"]
 [ext_resource type="Script" uid="uid://dddkeim8irwlg" path="res://goat/state_machine/goat_follow_state.gd" id="8_xcji4"]
+[ext_resource type="Script" uid="uid://bcag7tdxie7sl" path="res://goat/state_machine/goat_hidden_state.gd" id="9_d2nyf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l80ky"]
 resource_local_to_scene = true
@@ -29,7 +29,7 @@ radius = 68.0
 [node name="Goat" type="CharacterBody2D"]
 collision_layer = 6
 collision_mask = 8
-script = ExtResource("1_whs48")
+script = ExtResource("1_rf04r")
 
 [node name="DirectionalSprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
@@ -61,9 +61,9 @@ metadata/_custom_type_script = "uid://da6bp4lfb6i1f"
 script = ExtResource("8_xcji4")
 metadata/_custom_type_script = "uid://dddkeim8irwlg"
 
-[node name="GoatEnterDoorState" type="Node" parent="StateMachine"]
-script = ExtResource("7_lkuck")
-metadata/_custom_type_script = "uid://bnuma0b8vnitc"
+[node name="GoatHiddenState" type="Node" parent="StateMachine"]
+script = ExtResource("9_d2nyf")
+metadata/_custom_type_script = "uid://bcag7tdxie7sl"
 
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 0

@@ -1,71 +1,84 @@
 class_name BarnDoor
 extends Area2D
 
-@export var _goat_breeder: GoatBreeder
+@export var _conductor: BarnActionConductor
 
-var _goats: Array[Goat] = []
-var _summoned_goats: Array[Goat] = []
-
+var _goats_to_bundles: Dictionary[Goat, GoatBundle] = {}
 
 func interact(caller: Node) -> void:
 	if not caller is Farmer:
 		return
 
-	var goats_entering_barn: Array[Goat] = caller.empty_goats()
+	var goats: Array[Goat] = caller.empty_goats()
 
-	if goats_entering_barn.is_empty():
-		_go_to_sleep()
+	if goats.is_empty():
+		_conductor.activate_barn_actions()
+		# _go_to_sleep()
 		return
 
-	_summon_goats(goats_entering_barn)
+	var bundle := GoatBundle.new(self, goats)
+
+	for goat in goats:
+		assert(not goat in _goats_to_bundles, "Goat already in a bundle: " + goat.name)
+		_goats_to_bundles[goat] = bundle
+
+	bundle.complete.connect(_bundle_complete.bind(bundle))
 
 
 func add_goat(goat: Goat) -> void:
-	assert(goat in _summoned_goats, "Goat must be summoned before adding to barn door.")
-
-	_goats.append(goat)
-	_summoned_goats.erase(goat)
-	print("Goat added to barn door: ", goat.name)
-
-	if not _summoned_goats.is_empty():
+	if not goat is Goat:
+		print("BarnDoor can only accept Goat instances.")
 		return
 
-	if _goats.size() == 1:
-		_sacrifice(_goats[0])
-	elif _goats.size() == 2:
-		_breed(_goats[0], _goats[1])
-	else:
-		print("Too many goats in barn door, cannot process.")
+	assert(goat in _goats_to_bundles, "Goat not in a bundle: " + goat.name)
 
-	_goats = []
-	_summoned_goats = []
+	goat.state_machine.transition_to_next_state(GoatState.HIDDEN)
+	_goats_to_bundles[goat].add_goat(goat)
+	_goats_to_bundles.erase(goat)
 
 
-func _summon_goats(goats: Array[Goat]) -> void:
-	if goats.size() > 2:
-		print("Too many goats to summon at once, only two can be summoned.")
-		return
-
-	for goat in goats:
-		if not goat in _summoned_goats:
-			_summoned_goats.append(goat)
-			goat.state_machine.transition_to_next_state(GoatState.FOLLOW, {"target": self})
-			print("Summoned goat: ", goat.name)
-
-
-func _breed(goat1: Goat, goat2: Goat) -> void:
-	await _goat_breeder._breed(goat1, goat2)
-
-	goat1.state_machine.transition_to_next_state(GoatState.IDLE)
-	goat2.state_machine.transition_to_next_state(GoatState.IDLE)
-
-
-func _sacrifice(goat: Goat) -> void:
-	# TODO: Implement sacrifice logic
-	await get_tree().create_timer(1.0).timeout
-
-	goat.state_machine.transition_to_next_state(GoatState.IDLE)
+func _bundle_complete(bundle: GoatBundle) -> void:
+	_conductor.add_goats(bundle.get_goats())
+	bundle.complete.disconnect(_bundle_complete)
 
 
 func _go_to_sleep() -> void:
 	pass
+
+
+class GoatBundle extends RefCounted:
+	signal complete
+
+	var _goats: Dictionary[Goat, bool] = {}
+
+	func _init(door: BarnDoor, goats: Array[Goat]) -> void:
+		for goat in goats:
+			_goats[goat] = false
+			goat.state_machine.transition_to_next_state(GoatState.FOLLOW, {
+				"target": door,
+			})
+
+
+	func add_goat(goat: Goat) -> void:
+		if not goat in _goats:
+			print("Goat not part of this bundle: ", goat.name)
+			return
+
+		_goats[goat] = true
+		goat.state_machine.transition_to_next_state(GoatState.HIDDEN)
+		print("Added goat to bundle: ", goat.name)
+
+		if is_complete():
+			complete.emit()
+
+
+	func is_complete() -> bool:
+		for goat in _goats:
+			if not _goats[goat]:
+				return false
+
+		return true
+
+
+	func get_goats() -> Array[Goat]:
+		return _goats.keys()

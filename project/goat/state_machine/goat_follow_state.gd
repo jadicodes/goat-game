@@ -17,7 +17,7 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 	goat.velocity = Vector2.ZERO
 	# goat.animation_player.play("follow")
 
-	if not target is BarnDoor:
+	if not target.has_method("add_goat"):
 		return
 
 	var overlap := goat.hit_box.get_overlapping_areas()
@@ -26,11 +26,9 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 		return
 
 	for area in overlap:
-		if area != target:
-			continue
-
-		goat.state_machine.transition_to_next_state(GoatState.ENTER_DOOR, {"door": area})
-		return
+		if area == target:
+			target.add_goat.call_deferred(goat)
+			return
 
 
 func update(_delta: float) -> void:
@@ -42,5 +40,8 @@ func update(_delta: float) -> void:
 
 
 func on_hit_box_area_entered(area: Area2D) -> void:
-	if area is BarnDoor:
-		finished.emit(ENTER_DOOR, {"door": area})
+	if area != target:
+		return
+
+	if target.has_method("add_goat"):
+		target.add_goat(goat)

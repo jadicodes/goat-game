@@ -35,10 +35,7 @@ func set_size(new_scale: float) -> void:
 
 
 func interact(caller: Node) -> void:
-	if not caller is Farmer:
-		return
-
-	state_machine.transition_to_next_state(GoatState.FOLLOW, {"target": caller})
+	state_machine.interact(caller)
 
 
 func set_dna(new_dna: DNA = null) -> void:

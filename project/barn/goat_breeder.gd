@@ -2,7 +2,7 @@ class_name GoatBreeder
 extends Node
 
 
-func _breed(goat1: Goat, goat2: Goat) -> void:
+func breed(goat1: Goat, goat2: Goat) -> void:
 	print("Breeding goats: ", goat1.name, " and ", goat2.name)
 	await get_tree().create_timer(2.0).timeout
 
