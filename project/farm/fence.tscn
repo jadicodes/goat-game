@@ -9,10 +9,10 @@
 size = Vector2(12.25, 654)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dg0hf"]
-size = Vector2(1179, 28)
+size = Vector2(926, 28)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dhmkf"]
-size = Vector2(154.671, 20)
+size = Vector2(138.268, 20)
 
 [node name="Fence" type="StaticBody2D"]
 y_sort_enabled = true
@@ -73,9 +73,9 @@ texture = ExtResource("1_uuj8f")
 offset = Vector2(901, -64)
 
 [node name="FenceDiagonal2" type="Sprite2D" parent="."]
-position = Vector2(170, 1007)
+position = Vector2(1431, 1009)
 texture = ExtResource("2_83sj1")
-offset = Vector2(1277, -55)
+offset = Vector2(16, -57)
 
 [node name="FenceDiagonal4" type="Sprite2D" parent="."]
 position = Vector2(233, 970)
@@ -147,7 +147,7 @@ position = Vector2(1549, 613)
 shape = SubResource("RectangleShape2D_cxgpr")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2(958.5, 1006)
+position = Vector2(958, 1006)
 shape = SubResource("RectangleShape2D_dg0hf")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
@@ -156,7 +156,7 @@ rotation = 0.553072
 shape = SubResource("RectangleShape2D_dhmkf")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="."]
-position = Vector2(1477, 970)
+position = Vector2(1483.98, 965.69)
 rotation = -0.553269
 shape = SubResource("RectangleShape2D_dhmkf")
 

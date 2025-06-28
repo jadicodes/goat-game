@@ -1,14 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://botoiyyc2kyur"]
+[gd_scene load_steps=9 format=3 uid="uid://botoiyyc2kyur"]
 
 [ext_resource type="Texture2D" uid="uid://dedngjr1lli1" path="res://farm/field.png" id="1_a1lvl"]
 [ext_resource type="PackedScene" uid="uid://cqdu4npym77hm" path="res://farmer/farmer.tscn" id="1_at1a1"]
+[ext_resource type="Script" uid="uid://cyylvbjdeiv8e" path="res://farm/farm.gd" id="1_qys1r"]
 [ext_resource type="PackedScene" uid="uid://mcq4epvbauin" path="res://barn/barn.tscn" id="1_ukrf4"]
 [ext_resource type="PackedScene" uid="uid://cquhif3oogil8" path="res://goat/goat.tscn" id="2_qnc1y"]
 [ext_resource type="PackedScene" uid="uid://dircmh8bpxfv7" path="res://shopper/shopper.tscn" id="4_72csm"]
 [ext_resource type="PackedScene" uid="uid://dey06x3nhwoiq" path="res://farm/fence.tscn" id="6_mjpad"]
 
+[sub_resource type="Curve2D" id="Curve2D_mjpad"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -47, 386, 0, 0, 0, 0, -53, 1109, 0, 0, 0, 0, 1939, 1105, 0, 0, 0, 0, 1941, 373)
+}
+point_count = 4
+
 [node name="Farm" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_qys1r")
+shopper_scene = ExtResource("4_72csm")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -43,10 +52,19 @@ _coat_alleles = Vector2i(0, 2)
 
 [node name="Fence" parent="." instance=ExtResource("6_mjpad")]
 
-[node name="Shopper" parent="." instance=ExtResource("4_72csm")]
-y_sort_enabled = true
-position = Vector2(1982, 736)
+[node name="ShopperPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_mjpad")
 
-[node name="Shopper2" parent="." instance=ExtResource("4_72csm")]
-y_sort_enabled = true
-position = Vector2(-182, 832)
+[node name="ShopperSpawnLocation" type="PathFollow2D" parent="ShopperPath"]
+unique_name_in_owner = true
+position = Vector2(-47, 386)
+rotation = 1.57909
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 35.0
+autostart = true
+
+[node name="Shopper" parent="." instance=ExtResource("4_72csm")]
+position = Vector2(-70, 725)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
