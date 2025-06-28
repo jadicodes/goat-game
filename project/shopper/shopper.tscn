@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://dircmh8bpxfv7"]
 
 [ext_resource type="Script" uid="uid://7cnn8nna2ipi" path="res://shopper/shopper.gd" id="1_jyoi8"]
-[ext_resource type="Shader" uid="uid://ctv322np0pxm0" path="res://hover_outline.gdshader" id="2_gio20"]
+[ext_resource type="Shader" uid="uid://gbw1pjqif6ic" path="res://hover_outline.gdshader" id="2_gio20"]
 [ext_resource type="Texture2D" uid="uid://d3ychibtxju4a" path="res://shopper/cultist_sprite.png" id="2_ldiyr"]
 [ext_resource type="Script" uid="uid://dwxhny1t5uu8p" path="res://state_machine/state_machine.gd" id="3_3r4rk"]
 [ext_resource type="Script" uid="uid://bk6gvoey2vghv" path="res://shopper/state_machine/shopper_enter_state.gd" id="4_ldiyr"]

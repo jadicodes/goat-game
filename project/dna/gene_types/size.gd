@@ -34,11 +34,11 @@ func get_phenotype() -> Phenotype:
 func get_scale() -> float:
 	match get_phenotype():
 		Phenotype.SMALL:
-			return 0.5
+			return 0.7
 		Phenotype.MEDIUM:
 			return 1.0
 		Phenotype.LARGE:
-			return 1.5
+			return 1.3
 		_:
 			return 1.0  # Should never happen, but a default is needed
 
