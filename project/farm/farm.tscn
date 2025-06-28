@@ -63,7 +63,7 @@ position = Vector2(-47, 386)
 rotation = 1.57909
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 35.0
 autostart = true
 
 [node name="Shopper" parent="." instance=ExtResource("4_72csm")]
