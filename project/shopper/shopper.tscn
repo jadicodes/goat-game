@@ -29,6 +29,11 @@ height = 230.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ldiyr"]
 bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
@@ -92,12 +97,11 @@ metadata/_custom_type_script = "uid://7gpa3vhl8il4"
 
 [node name="SpeechBubble" type="PanelContainer" parent="."]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(5, 5)
-offset_left = -57.0
-offset_top = -357.0
-offset_right = 65.0
-offset_bottom = -168.0
+offset_left = -105.0
+offset_top = -277.0
+offset_right = 108.0
+offset_bottom = -138.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_ldiyr")
@@ -108,7 +112,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(5, 5)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 40
 text = "this is just a test"
 horizontal_alignment = 1
 vertical_alignment = 1
