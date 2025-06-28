@@ -62,12 +62,8 @@ unique_name_in_owner = true
 position = Vector2(-47, 386)
 rotation = 1.57909
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 35.0
-autostart = true
-
 [node name="Shopper" parent="." instance=ExtResource("4_72csm")]
 material = SubResource("ShaderMaterial_ol6uc")
 position = Vector2(-70, 725)
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="day_advanced" from="Barn" to="." method="_on_barn_day_advanced"]

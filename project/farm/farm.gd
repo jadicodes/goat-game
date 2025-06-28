@@ -13,5 +13,5 @@ func _create_shopper():
 	print("shopper created")
 
 
-func _on_timer_timeout() -> void:
+func _on_barn_day_advanced() -> void:
 	_create_shopper()
