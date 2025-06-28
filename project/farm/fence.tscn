@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dey06x3nhwoiq"]
+[gd_scene load_steps=9 format=3 uid="uid://dey06x3nhwoiq"]
 
 [ext_resource type="Texture2D" uid="uid://c0chw05j3cd11" path="res://farm/fence_front.png" id="1_uuj8f"]
 [ext_resource type="Texture2D" uid="uid://dh4u3wmtgr76c" path="res://farm/fence_diagonal.png" id="2_83sj1"]
@@ -13,6 +13,9 @@ size = Vector2(926, 28)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dhmkf"]
 size = Vector2(138.268, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_83sj1"]
+size = Vector2(1183.69, 20)
 
 [node name="Fence" type="StaticBody2D"]
 y_sort_enabled = true
@@ -155,12 +158,11 @@ position = Vector2(439.993, 969.082)
 rotation = 0.553072
 shape = SubResource("RectangleShape2D_dhmkf")
 
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="."]
+position = Vector2(964.156, 318)
+shape = SubResource("RectangleShape2D_83sj1")
+
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="."]
 position = Vector2(1483.98, 965.69)
 rotation = -0.553269
 shape = SubResource("RectangleShape2D_dhmkf")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
-z_index = -1
-position = Vector2(959.5, 297)
-shape = SubResource("RectangleShape2D_dg0hf")
