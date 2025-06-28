@@ -33,7 +33,7 @@ grow_vertical = 2
 texture = ExtResource("1_a1lvl")
 
 [node name="Barn" parent="." instance=ExtResource("1_ukrf4")]
-position = Vector2(0, 155)
+position = Vector2(960, 155)
 
 [node name="Farmer" parent="." instance=ExtResource("1_at1a1")]
 y_sort_enabled = true

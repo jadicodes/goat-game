@@ -32,11 +32,11 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 
 
 func update(_delta: float) -> void:
-	if goat.position.distance_to(target.position) <= FOLLOW_DISTANCE:
+	if goat.position.distance_to(target.global_position) <= FOLLOW_DISTANCE:
 		goat.velocity = Vector2.ZERO
 		return
 
-	goat.velocity = (target.position - goat.position).normalized() * goat.speed
+	goat.velocity = (target.global_position - goat.global_position).normalized() * goat.speed
 
 
 func on_hit_box_area_entered(area: Area2D) -> void:

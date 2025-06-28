@@ -5,6 +5,9 @@ extends Area2D
 
 var _goats_to_bundles: Dictionary[Goat, GoatBundle] = {}
 
+@onready var _animation_player: AnimationPlayer = %AnimationPlayer
+
+
 func interact(caller: Node) -> void:
 	if not caller is Farmer:
 		return
@@ -12,8 +15,7 @@ func interact(caller: Node) -> void:
 	var goats: Array[Goat] = caller.empty_goats()
 
 	if goats.is_empty():
-		_conductor.activate_barn_actions()
-		# _go_to_sleep()
+		_go_to_sleep(caller)
 		return
 
 	var bundle := GoatBundle.new(self, goats)
@@ -42,8 +44,24 @@ func _bundle_complete(bundle: GoatBundle) -> void:
 	bundle.complete.disconnect(_bundle_complete)
 
 
-func _go_to_sleep() -> void:
-	pass
+func _go_to_sleep(farmer: Farmer) -> void:
+	farmer.visible = false
+
+	_animation_player.play("barn_sleep")
+
+	await _animation_player.animation_finished
+
+	_animation_player.play("barn_shake")
+
+	await _conductor.activate_barn_actions()
+
+	_animation_player.stop()
+
+	_animation_player.play_backwards("barn_sleep")
+
+	await _animation_player.animation_finished
+
+	farmer.visible = true
 
 
 class GoatBundle extends RefCounted:
