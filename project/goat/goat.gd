@@ -66,5 +66,6 @@ func _on_hit_box_area_entered(area:Area2D) -> void:
 	if state_machine.state.has_method("on_hit_box_area_entered"):
 		state_machine.state.on_hit_box_area_entered(area)
 
+
 func stop_hover() -> void:
 	%DirectionalSprite2D.material.set_shader_parameter("enabled", false)
