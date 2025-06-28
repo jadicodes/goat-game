@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqdu4npym77hm"]
+[gd_scene load_steps=7 format=3 uid="uid://cqdu4npym77hm"]
 
 [ext_resource type="Script" uid="uid://dm2umt83y7wau" path="res://farmer/farmer.gd" id="1_7h16g"]
 [ext_resource type="Texture2D" uid="uid://sqj3sppvhpj6" path="res://farmer/farmer_sprite.png" id="2_7h16g"]
@@ -7,6 +7,9 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7h16g"]
 radius = 32.249
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d38dk"]
+radius = 32.0
 
 [node name="Farmer" type="CharacterBody2D"]
 collision_mask = 9
@@ -25,10 +28,10 @@ metadata/_custom_type_script = "uid://d20spc7xxot7"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7h16g")
 
-[node name="HitCast" type="RayCast2D" parent="."]
+[node name="HitCast" type="ShapeCast2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(1, -96)
+shape = SubResource("CircleShape2D_d38dk")
 target_position = Vector2(148, 0)
+max_results = 1
 collision_mask = 4
-hit_from_inside = true
 collide_with_areas = true

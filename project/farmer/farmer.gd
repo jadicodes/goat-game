@@ -6,17 +6,17 @@ extends CharacterBody2D
 var _following_goats: Array[Goat] = []
 var _last_hovered: Node
 
-@onready var hit_cast: RayCast2D = %HitCast
+@onready var hit_cast: ShapeCast2D = %HitCast
 
 
 func _process(_delta: float) -> void:
-	var collider = $HitCast.get_collider()
+	if not hit_cast.is_colliding():
+		return
+
+	var collider = $HitCast.get_collider(0)
 
 	if collider != _last_hovered and _last_hovered:
 		_last_hovered.stop_hover()
-
-	if not collider:
-		return
 
 	if collider.has_method("hover"):
 		collider.hover()
@@ -37,9 +37,12 @@ func _physics_process(_delta: float) -> void:
 
 
 func attempt_interact() -> void:
-	var hit := hit_cast.get_collider() as Node
+	if not hit_cast.is_colliding():
+		return
 
-	if not hit or not hit.has_method("interact"):
+	var hit := hit_cast.get_collider(0) as Node
+
+	if not hit.has_method("interact"):
 		print("No interactable objects nearby.")
 		return
 
