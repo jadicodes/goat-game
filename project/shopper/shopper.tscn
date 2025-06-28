@@ -98,6 +98,8 @@ metadata/_custom_type_script = "uid://7gpa3vhl8il4"
 [node name="SpeechBubble" type="PanelContainer" parent="."]
 unique_name_in_owner = true
 visible = false
+z_index = 1
+y_sort_enabled = true
 custom_minimum_size = Vector2(5, 5)
 offset_left = -105.0
 offset_top = -277.0

@@ -2,5 +2,5 @@ extends PanelContainer
 
 
 func display_text(new_text) -> void:
-	%SpeechBubble.show()
+	show()
 	%Text.text = new_text
