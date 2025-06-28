@@ -45,13 +45,11 @@ y_sort_enabled = true
 [node name="Goat1" parent="Goats" instance=ExtResource("2_qnc1y")]
 y_sort_enabled = true
 position = Vector2(390, 712)
-collision_mask = 10
 _coat_alleles = Vector2i(1, 1)
 
 [node name="Goat2" parent="Goats" instance=ExtResource("2_qnc1y")]
 y_sort_enabled = true
 position = Vector2(1319, 509)
-collision_mask = 10
 _coat_alleles = Vector2i(0, 2)
 
 [node name="Fence" parent="." instance=ExtResource("6_mjpad")]
