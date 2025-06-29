@@ -10,7 +10,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_mjpad"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -47, 386, 0, 0, 0, 0, -53, 1109, 0, 0, 0, 0, 1939, 1105, 0, 0, 0, 0, 1941, 373)
+"points": PackedVector2Array(0, 0, 0, 0, -96, 384, 0, 0, 0, 0, -96, 1368, 0, 0, 0, 0, 2016, 1368, 0, 0, 0, 0, 2016, 384)
 }
 point_count = 4
 
@@ -56,7 +56,7 @@ curve = SubResource("Curve2D_mjpad")
 
 [node name="ShopperSpawnLocation" type="PathFollow2D" parent="ShopperPath"]
 unique_name_in_owner = true
-position = Vector2(-47, 386)
-rotation = 1.57909
+position = Vector2(-96, 384)
+rotation = 1.5708
 
 [connection signal="day_advanced" from="Barn" to="." method="_on_barn_day_advanced"]
