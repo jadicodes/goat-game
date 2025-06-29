@@ -1,11 +1,6 @@
-@tool
+# @tool
 class_name DirectionalSprite2D
-extends Sprite2D
-
-@export var _sprite_front: Texture2D
-@export var _sprite_back: Texture2D
-@export var _front_flipped: bool = false
-@export var _back_flipped: bool = false
+extends AnimatedSprite2D
 
 var _character: CharacterBody2D
 
@@ -39,9 +34,9 @@ func _update_direction() -> void:
 
 
 func _update_sprite() -> void:
-	if _is_front:
-		texture = _sprite_front
-		flip_h = _front_flipped if _is_left else not _front_flipped
+	if _character.velocity == Vector2.ZERO:
+		play("idle_front" if _is_front else "idle_back")
 	else:
-		texture = _sprite_back
-		flip_h = _back_flipped if _is_left else not _back_flipped
+		play("walk_front" if _is_front else "walk_back")
+
+	flip_h = not _is_left

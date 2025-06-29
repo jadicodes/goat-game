@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dircmh8bpxfv7"]
+[gd_scene load_steps=18 format=3 uid="uid://dircmh8bpxfv7"]
 
 [ext_resource type="Script" uid="uid://7cnn8nna2ipi" path="res://shopper/shopper.gd" id="1_jyoi8"]
 [ext_resource type="Shader" uid="uid://ctv322np0pxm0" path="res://hover_outline.gdshader" id="2_gio20"]
@@ -23,6 +23,41 @@ shader_parameter/outline_color = Color(0.148257, 0.00016995, 0.55775, 1)
 shader_parameter/enabled = false
 shader_parameter/modulate_color = Color(1, 1, 1, 1)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_gio20"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ldiyr")
+}],
+"loop": true,
+"name": &"idle_back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ldiyr")
+}],
+"loop": true,
+"name": &"idle_front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ldiyr")
+}],
+"loop": true,
+"name": &"walk_back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ldiyr")
+}],
+"loop": true,
+"name": &"walk_front",
+"speed": 5.0
+}]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_avbde"]
 radius = 64.0
 height = 128.0
@@ -46,19 +81,15 @@ collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_jyoi8")
 
-[node name="DirectionalSprite2D" type="Sprite2D" parent="."]
+[node name="DirectionalSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-y_sort_enabled = true
 material = SubResource("ShaderMaterial_aacoh")
-position = Vector2(-1, 126)
-texture = ExtResource("2_ldiyr")
-offset = Vector2(1, -126)
-flip_h = true
+position = Vector2(0, 99)
+sprite_frames = SubResource("SpriteFrames_gio20")
+animation = &"walk_front"
+autoplay = "idle_front"
+offset = Vector2(0, -99)
 script = ExtResource("11_gm5io")
-_sprite_front = ExtResource("2_ldiyr")
-_sprite_back = ExtResource("2_ldiyr")
-_front_flipped = true
-_back_flipped = true
 metadata/_custom_type_script = "uid://d20spc7xxot7"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

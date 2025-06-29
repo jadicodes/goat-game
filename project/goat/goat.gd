@@ -13,7 +13,7 @@ const GOAT_BACK_SPRITE = preload("res://goat/goat_sprite_back.png")
 
 @onready var state_machine: StateMachine = $StateMachine
 @onready var hit_box: Area2D = $HitBox
-@onready var _sprite: Sprite2D = %DirectionalSprite2D
+@onready var _sprite: DirectionalSprite2D = %DirectionalSprite2D
 @onready var _audio_player: AudioStreamPlayer = %AudioStreamPlayer
 # @onready var _collision_shape: CollisionShape2D = $CollisionShape2D
 

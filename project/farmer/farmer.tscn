@@ -1,9 +1,44 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqdu4npym77hm"]
+[gd_scene load_steps=8 format=3 uid="uid://cqdu4npym77hm"]
 
 [ext_resource type="Script" uid="uid://dm2umt83y7wau" path="res://farmer/farmer.gd" id="1_7h16g"]
 [ext_resource type="Texture2D" uid="uid://sqj3sppvhpj6" path="res://farmer/farmer_sprite.png" id="2_7h16g"]
+[ext_resource type="Texture2D" uid="uid://cqxdafnj0jnjq" path="res://farmer/farmer_sprite_back.png" id="2_d38dk"]
 [ext_resource type="Script" uid="uid://d20spc7xxot7" path="res://directional_sprite/directional_sprite.gd" id="2_vm3ej"]
-[ext_resource type="Texture2D" uid="uid://cqxdafnj0jnjq" path="res://farmer/farmer_sprite_back.png" id="4_d38dk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4difp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_d38dk")
+}],
+"loop": true,
+"name": &"idle_back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7h16g")
+}],
+"loop": true,
+"name": &"idle_front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_d38dk")
+}],
+"loop": true,
+"name": &"walk_back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7h16g")
+}],
+"loop": true,
+"name": &"walk_front",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7h16g"]
 radius = 32.249
@@ -16,15 +51,12 @@ collision_mask = 9
 motion_mode = 1
 script = ExtResource("1_7h16g")
 
-[node name="DirectionalSprite2D" type="Sprite2D" parent="."]
-y_sort_enabled = true
-position = Vector2(5.96046e-08, -7.62939e-06)
-scale = Vector2(0.995026, 0.987494)
-texture = ExtResource("2_7h16g")
-offset = Vector2(1.005, -97.2158)
+[node name="DirectionalSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4difp")
+animation = &"walk_front"
+autoplay = "idle_front"
+offset = Vector2(0, -104)
 script = ExtResource("2_vm3ej")
-_sprite_front = ExtResource("2_7h16g")
-_sprite_back = ExtResource("4_d38dk")
 metadata/_custom_type_script = "uid://d20spc7xxot7"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
