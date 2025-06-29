@@ -30,6 +30,7 @@ func stop_hover() -> void:
 
 func _on_day_advanced() -> void:
 	_days += 1
+	%DaysLeftLabel.text = str(4 - _days) + " days left"
 
 	if _days >= TOTAL_DAYS:
 		state_machine.transition_to_next_state(ShopperState.ORDER_FAILURE)
