@@ -1,7 +1,10 @@
 class_name Shopper
 extends CharacterBody2D
 
+const TOTAL_DAYS := 4
+
 var speed: int = 100
+var _days: int = 0
 
 @onready var state_machine: StateMachine = $StateMachine
 
@@ -23,3 +26,10 @@ func hover() -> void:
 
 func stop_hover() -> void:
 	%DirectionalSprite2D.material.set_shader_parameter("enabled", false)
+
+
+func _on_day_advanced() -> void:
+	_days += 1
+
+	if _days >= TOTAL_DAYS:
+		state_machine.transition_to_next_state(ShopperState.ORDER_FAILURE)
