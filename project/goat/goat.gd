@@ -12,6 +12,7 @@ const GOAT_BACK_SPRITE = preload("res://goat/goat_sprite_back.png")
 @export var dna: DNA
 
 @onready var sprite: Sprite2D = %DirectionalSprite2D
+@onready var audio_player: AudioStreamPlayer = %AudioStreamPlayer
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var hit_box: Area2D = $HitBox
 @onready var state_machine: StateMachine = $StateMachine
@@ -35,6 +36,7 @@ func set_size(new_scale: float) -> void:
 
 
 func interact(caller: Node) -> void:
+	audio_player.play()
 	state_machine.interact(caller)
 
 

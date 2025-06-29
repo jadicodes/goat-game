@@ -1,8 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://cquhif3oogil8"]
+[gd_scene load_steps=20 format=3 uid="uid://cquhif3oogil8"]
 
 [ext_resource type="Script" uid="uid://cwrc72jas37aa" path="res://goat/goat.gd" id="1_rf04r"]
 [ext_resource type="Script" uid="uid://d20spc7xxot7" path="res://directional_sprite/directional_sprite.gd" id="2_d2nyf"]
-[ext_resource type="Shader" uid="uid://gbw1pjqif6ic" path="res://hover_outline.gdshader" id="2_rf04r"]
+[ext_resource type="Shader" uid="uid://ctv322np0pxm0" path="res://hover_outline.gdshader" id="2_rf04r"]
 [ext_resource type="Texture2D" uid="uid://drg48rpojyljm" path="res://goat/goat_sprite_back.png" id="4_rf04r"]
 [ext_resource type="Texture2D" uid="uid://b37k3xd0n13lf" path="res://goat/goat_sprite.png" id="4_xcji4"]
 [ext_resource type="Script" uid="uid://dwxhny1t5uu8p" path="res://state_machine/state_machine.gd" id="5_lkuck"]
@@ -10,6 +10,11 @@
 [ext_resource type="Script" uid="uid://da6bp4lfb6i1f" path="res://goat/state_machine/goat_wander_state.gd" id="7_d2nyf"]
 [ext_resource type="Script" uid="uid://dddkeim8irwlg" path="res://goat/state_machine/goat_follow_state.gd" id="8_xcji4"]
 [ext_resource type="Script" uid="uid://bcag7tdxie7sl" path="res://goat/state_machine/goat_hidden_state.gd" id="9_d2nyf"]
+[ext_resource type="AudioStream" uid="uid://b6kp16jg0kgin" path="res://audio/noise/bleat_1.wav" id="11_8e1ux"]
+[ext_resource type="AudioStream" uid="uid://c4qder1b28n1i" path="res://audio/noise/bleat_2.wav" id="12_m3eqh"]
+[ext_resource type="AudioStream" uid="uid://bfu86s7ufe61o" path="res://audio/noise/scream_1.wav" id="13_jg6it"]
+[ext_resource type="AudioStream" uid="uid://bbrutrifdelgb" path="res://audio/noise/scream_2.wav" id="14_nigfc"]
+[ext_resource type="AudioStream" uid="uid://dgjg4dtioflyl" path="res://audio/noise/tiny_bleat.wav" id="15_kji8r"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l80ky"]
 resource_local_to_scene = true
@@ -25,6 +30,19 @@ radius = 48.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rf04r"]
 radius = 68.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wq21q"]
+random_pitch = 1.5
+random_volume_offset_db = 1.0
+streams_count = 5
+stream_0/stream = ExtResource("11_8e1ux")
+stream_0/weight = 5.0
+stream_1/stream = ExtResource("12_m3eqh")
+stream_1/weight = 5.0
+stream_2/stream = ExtResource("13_jg6it")
+stream_3/stream = ExtResource("14_nigfc")
+stream_4/stream = ExtResource("15_kji8r")
+stream_4/weight = 5.0
 
 [node name="Goat" type="CharacterBody2D"]
 collision_layer = 6
@@ -72,5 +90,9 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("CircleShape2D_rf04r")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_wq21q")
 
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
