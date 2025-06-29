@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://mcq4epvbauin"]
+[gd_scene load_steps=16 format=3 uid="uid://mcq4epvbauin"]
 
 [ext_resource type="Texture2D" uid="uid://cvugrcalq6hbr" path="res://barn/barn.png" id="1_02c0v"]
 [ext_resource type="Script" uid="uid://cvg1b4m41fa4a" path="res://barn/barn.gd" id="1_bhhye"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://b3au662250f0b" path="res://audio/noise/freaky_1.wav" id="6_o0ecb"]
 [ext_resource type="AudioStream" uid="uid://714q28uw0a8w" path="res://audio/noise/freaky_2.wav" id="7_1sw7u"]
 [ext_resource type="AudioStream" uid="uid://db05nb02dtslf" path="res://audio/noise/goat_eyes_emoji.wav" id="8_1yres"]
+[ext_resource type="Texture2D" uid="uid://cwfnhd7qfmv3a" path="res://barn/sacrifice.png" id="9_1sw7u"]
 
 [sub_resource type="Animation" id="Animation_bhhye"]
 length = 0.001
@@ -46,6 +47,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sacrifice:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_a5wdv"]
@@ -108,11 +121,27 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.74902)]
 }
 
+[sub_resource type="Animation" id="Animation_1yres"]
+resource_name = "sacrifice"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sacrifice:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bhhye"]
 _data = {
 &"RESET": SubResource("Animation_bhhye"),
 &"barn_shake": SubResource("Animation_a5wdv"),
-&"barn_sleep": SubResource("Animation_pjnw1")
+&"barn_sleep": SubResource("Animation_pjnw1"),
+&"sacrifice": SubResource("Animation_1yres")
 }
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jm2h7"]
@@ -134,6 +163,11 @@ metadata/_custom_type_script = "uid://dk7rf8tgtv0bq"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_02c0v")
+
+[node name="Sacrifice" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-16, 95)
+texture = ExtResource("9_1sw7u")
 
 [node name="BarnDoor" parent="." node_paths=PackedStringArray("_conductor") instance=ExtResource("2_slllp")]
 collision_layer = 5

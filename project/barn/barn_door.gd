@@ -52,6 +52,38 @@ func _bundle_complete(bundle: GoatBundle) -> void:
 	bundle.complete.disconnect(_bundle_complete)
 
 
+func _sacrifice_goat(farmer: Node2D) -> void:
+	_animation_player.play("door_open")
+
+	await _animation_player.animation_finished
+
+	farmer.visible = false
+
+	_animation_player.play_backwards("door_open")
+
+	await _animation_player.animation_finished
+
+	_animation_player.play("sacrifice")
+	
+	# Update souls
+
+	await _animation_player.animation_finished
+	
+	_animation_player.play_backwards("sacrifice")
+
+	await _animation_player.animation_finished
+
+	_animation_player.play("door_open")
+
+	await _animation_player.animation_finished
+
+	farmer.visible = true
+
+	_animation_player.play_backwards("door_open")
+
+	await _animation_player.animation_finished
+
+
 func _go_to_sleep(farmer: Node2D) -> void:
 	_animation_player.play("door_open")
 
