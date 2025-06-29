@@ -10,11 +10,11 @@
 [ext_resource type="Script" uid="uid://da6bp4lfb6i1f" path="res://goat/state_machine/goat_wander_state.gd" id="7_d2nyf"]
 [ext_resource type="Script" uid="uid://dddkeim8irwlg" path="res://goat/state_machine/goat_follow_state.gd" id="8_xcji4"]
 [ext_resource type="Script" uid="uid://bcag7tdxie7sl" path="res://goat/state_machine/goat_hidden_state.gd" id="9_d2nyf"]
-[ext_resource type="AudioStream" uid="uid://b6kp16jg0kgin" path="res://audio/noise/bleat_1.wav" id="11_8e1ux"]
-[ext_resource type="AudioStream" uid="uid://c4qder1b28n1i" path="res://audio/noise/bleat_2.wav" id="12_m3eqh"]
-[ext_resource type="AudioStream" uid="uid://bfu86s7ufe61o" path="res://audio/noise/scream_1.wav" id="13_jg6it"]
-[ext_resource type="AudioStream" uid="uid://bbrutrifdelgb" path="res://audio/noise/scream_2.wav" id="14_nigfc"]
-[ext_resource type="AudioStream" uid="uid://dgjg4dtioflyl" path="res://audio/noise/tiny_bleat.wav" id="15_kji8r"]
+[ext_resource type="AudioStream" uid="uid://das20pn3qf2cd" path="res://audio/noise/bleat_1.wav" id="11_8e1ux"]
+[ext_resource type="AudioStream" uid="uid://c35tgxke3046" path="res://audio/noise/bleat_2.wav" id="12_m3eqh"]
+[ext_resource type="AudioStream" uid="uid://bj3wid3oag8h1" path="res://audio/noise/scream_1.wav" id="13_jg6it"]
+[ext_resource type="AudioStream" uid="uid://ttrmypqd77wu" path="res://audio/noise/scream_2.wav" id="14_nigfc"]
+[ext_resource type="AudioStream" uid="uid://dw3ttkol73swo" path="res://audio/noise/tiny_bleat.wav" id="15_kji8r"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l80ky"]
 resource_local_to_scene = true

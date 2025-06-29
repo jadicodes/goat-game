@@ -2,11 +2,7 @@
 
 importer="wav"
 type="AudioStreamWAV"
-<<<<<<< HEAD
-uid="uid://bfu86s7ufe61o"
-=======
-uid="uid://cfgknfb0wxdxa"
->>>>>>> a8a6bad (Trim audio files)
+uid="uid://bj3wid3oag8h1"
 path="res://.godot/imported/scream_1.wav-53d0c47bae0f00e0f11d1988d92fcd46.sample"
 
 [deps]

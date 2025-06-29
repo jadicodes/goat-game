@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://det3pk5b77cx5" path="res://barn/barn_door.tscn" id="2_slllp"]
 [ext_resource type="Script" uid="uid://dh4y7uv31q3oi" path="res://barn/goat_breeder.gd" id="3_02c0v"]
 [ext_resource type="Script" uid="uid://dk7rf8tgtv0bq" path="res://barn/barn_action/barn_action_conductor.gd" id="4_pjnw1"]
-[ext_resource type="AudioStream" uid="uid://diy1gjsj6dyos" path="res://audio/noise/freaky_1.wav" id="6_o0ecb"]
-[ext_resource type="AudioStream" uid="uid://c10kg31wtaufr" path="res://audio/noise/freaky_2.wav" id="7_1sw7u"]
-[ext_resource type="AudioStream" uid="uid://oj8rupx34hqm" path="res://audio/noise/goat_eyes_emoji.wav" id="8_1yres"]
+[ext_resource type="AudioStream" uid="uid://b3au662250f0b" path="res://audio/noise/freaky_1.wav" id="6_o0ecb"]
+[ext_resource type="AudioStream" uid="uid://714q28uw0a8w" path="res://audio/noise/freaky_2.wav" id="7_1sw7u"]
+[ext_resource type="AudioStream" uid="uid://db05nb02dtslf" path="res://audio/noise/goat_eyes_emoji.wav" id="8_1yres"]
 
 [sub_resource type="Animation" id="Animation_bhhye"]
 length = 0.001
