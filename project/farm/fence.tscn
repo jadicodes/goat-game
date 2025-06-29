@@ -159,13 +159,15 @@ texture = ExtResource("3_utdkg")
 
 [node name="FencePostOne" type="Sprite2D" parent="."]
 y_sort_enabled = true
-position = Vector2(512, 956)
+position = Vector2(512, 1017)
 texture = ExtResource("5_cxgpr")
+offset = Vector2(0, -61)
 
 [node name="FencePostOne2" type="Sprite2D" parent="."]
 y_sort_enabled = true
-position = Vector2(1405, 956)
+position = Vector2(1404, 1013)
 texture = ExtResource("5_cxgpr")
+offset = Vector2(1, -57)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(373, 597.078)
