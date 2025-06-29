@@ -1,16 +1,16 @@
 class_name ShopperEnterState
 extends ShopperState
 
-var timer: Timer
+var _timer: Timer
 
 
 func _ready() -> void:
 	super._ready()
-	timer = Timer.new()
-	timer.autostart = false
-	timer.one_shot = true
-	timer.timeout.connect(_on_timer_timeout)
-	add_child(timer)
+	_timer = Timer.new()
+	_timer.autostart = false
+	_timer.one_shot = true
+	_timer.timeout.connect(_on_timer_timeout)
+	add_child(_timer)
 
 
 func enter(_previous_state_path: String, _data := {}) -> void:
@@ -18,12 +18,12 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 		((get_viewport().get_visible_rect().size / 2.0) - shopper.global_position).normalized() * shopper.speed
 	)
 
-	timer.start(5)
+	_timer.start(5)
 	# shopper.animation_player.play("run")
 
 
 func on_collision(_collision: KinematicCollision2D) -> void:
-	timer.stop()
+	_timer.stop()
 	finished.emit(ARRIVE_AT_FENCE)
 
 

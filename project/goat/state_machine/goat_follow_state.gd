@@ -3,12 +3,12 @@ extends GoatState
 
 const FOLLOW_DISTANCE := 128.0
 
-var target: Node2D
+var _target: Node2D
 
 
 func enter(_previous_state_path: String, _data := {}) -> void:
 	if _data.has("target"):
-		target = _data.target
+		_target = _data.target
 	else:
 		printerr("No target provided to GoatFollowState.")
 		finished.emit(IDLE)
@@ -17,7 +17,7 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 	goat.velocity = Vector2.ZERO
 	# goat.animation_player.play("follow")
 
-	if not target.has_method("add_goat"):
+	if not _target.has_method("add_goat"):
 		return
 
 	var overlap := goat.hit_box.get_overlapping_areas()
@@ -26,22 +26,22 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 		return
 
 	for area in overlap:
-		if area == target:
-			target.add_goat.call_deferred(goat)
+		if area == _target:
+			_target.add_goat.call_deferred(goat)
 			return
 
 
 func update(_delta: float) -> void:
-	if goat.position.distance_to(target.global_position) <= FOLLOW_DISTANCE:
+	if goat.position.distance_to(_target.global_position) <= FOLLOW_DISTANCE:
 		goat.velocity = Vector2.ZERO
 		return
 
-	goat.velocity = (target.global_position - goat.global_position).normalized() * goat.speed
+	goat.velocity = (_target.global_position - goat.global_position).normalized() * goat.speed
 
 
 func on_hit_box_area_entered(area: Area2D) -> void:
-	if area != target:
+	if area != _target:
 		return
 
-	if target.has_method("add_goat"):
-		target.add_goat(goat)
+	if _target.has_method("add_goat"):
+		_target.add_goat(goat)

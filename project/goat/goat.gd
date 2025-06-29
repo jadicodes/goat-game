@@ -11,11 +11,11 @@ const GOAT_BACK_SPRITE = preload("res://goat/goat_sprite_back.png")
 
 @export var dna: DNA
 
-@onready var sprite: Sprite2D = %DirectionalSprite2D
-@onready var audio_player: AudioStreamPlayer = %AudioStreamPlayer
-@onready var collision_shape: CollisionShape2D = $CollisionShape2D
-@onready var hit_box: Area2D = $HitBox
 @onready var state_machine: StateMachine = $StateMachine
+@onready var hit_box: Area2D = $HitBox
+@onready var _sprite: Sprite2D = %DirectionalSprite2D
+@onready var _audio_player: AudioStreamPlayer = %AudioStreamPlayer
+# @onready var _collision_shape: CollisionShape2D = $CollisionShape2D
 
 
 func _ready() -> void:
@@ -27,16 +27,16 @@ func _physics_process(_delta: float) -> void:
 
 
 func set_color(color: Color) -> void:
-	sprite.modulate = color
-	sprite.material.set_shader_parameter("modulate_color", color)
+	_sprite.modulate = color
+	_sprite.material.set_shader_parameter("modulate_color", color)
 
 
 func set_size(new_scale: float) -> void:
-	sprite.scale = Vector2(new_scale, new_scale)
+	_sprite.scale = Vector2(new_scale, new_scale)
 
 
 func interact(caller: Node) -> void:
-	audio_player.play()
+	_audio_player.play()
 	state_machine.interact(caller)
 
 

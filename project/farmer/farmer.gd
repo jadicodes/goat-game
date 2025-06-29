@@ -1,19 +1,19 @@
 class_name Farmer
 extends CharacterBody2D
 
-@export var speed = 300
+@export var _speed = 300
 
 var _following_goats: Array[Goat] = []
 var _last_hovered: Node
 
-@onready var hit_cast: ShapeCast2D = %HitCast
+@onready var _hit_cast: ShapeCast2D = %HitCast
 
 
 func _process(_delta: float) -> void:
-	if not hit_cast.is_colliding():
+	if not _hit_cast.is_colliding():
 		return
 
-	var collider = hit_cast.get_collider(0)
+	var collider = _hit_cast.get_collider(0)
 
 	if not collider:
 		return
@@ -32,18 +32,18 @@ func _physics_process(_delta: float) -> void:
 	velocity = dir
 
 	if dir != Vector2.ZERO:
-		velocity = velocity.normalized() * speed
+		velocity = velocity.normalized() * _speed
 
-	hit_cast.look_at(hit_cast.global_position + dir)
+	_hit_cast.look_at(_hit_cast.global_position + dir)
 
 	move_and_slide()
 
 
 func attempt_interact() -> void:
-	if not hit_cast.is_colliding():
+	if not _hit_cast.is_colliding():
 		return
 
-	var hit := hit_cast.get_collider(0) as Node
+	var hit := _hit_cast.get_collider(0) as Node
 
 	if not hit.has_method("interact"):
 		print("No interactable objects nearby.")

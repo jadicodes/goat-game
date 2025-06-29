@@ -1,16 +1,16 @@
 class_name GoatWanderState
 extends GoatState
 
-var timer: Timer
+var _timer: Timer
 
 
 func _ready() -> void:
 	super._ready()
-	timer = Timer.new()
-	timer.autostart = false
-	timer.one_shot = true
-	timer.timeout.connect(_on_timer_timeout)
-	add_child(timer)
+	_timer = Timer.new()
+	_timer.autostart = false
+	_timer.one_shot = true
+	_timer.timeout.connect(_on_timer_timeout)
+	add_child(_timer)
 
 
 func enter(_previous_state_path: String, _data := {}) -> void:
@@ -30,8 +30,8 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 		_move_away(overlap)
 	# goat.animation_player.play("run")
 
-	timer.wait_time = randf_range(1, 3)
-	timer.start()
+	_timer.wait_time = randf_range(1, 3)
+	_timer.start()
 
 
 func _move_away(nodes: Array[Node2D]) -> void:
@@ -60,4 +60,4 @@ func interact(caller: Node) -> void:
 
 
 func exit() -> void:
-	timer.stop()
+	_timer.stop()

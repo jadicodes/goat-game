@@ -1,8 +1,8 @@
 extends Node2D
 
-@export var shopper_scene: PackedScene
+const SHOPPER_SCENE: PackedScene = preload("res://shopper/shopper.tscn")
 
-@onready var barn: Barn = %Barn
+@onready var _barn: Barn = %Barn
 
 
 func _ready() -> void:
@@ -10,13 +10,13 @@ func _ready() -> void:
 
 
 func _create_shopper() -> void:
-	var shopper = shopper_scene.instantiate()
+	var shopper = SHOPPER_SCENE.instantiate()
 	var shopper_spawn_location = %ShopperSpawnLocation
 	shopper_spawn_location.progress_ratio = randf()
 
 	shopper.global_position = shopper_spawn_location.global_position
 	get_tree().get_root().add_child(shopper)
-	barn.day_advanced.connect(shopper._on_day_advanced)
+	_barn.day_advanced.connect(shopper._on_day_advanced)
 	print("shopper created")
 
 

@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://botoiyyc2kyur"]
+[gd_scene load_steps=8 format=3 uid="uid://botoiyyc2kyur"]
 
 [ext_resource type="Texture2D" uid="uid://dedngjr1lli1" path="res://farm/field.png" id="1_a1lvl"]
 [ext_resource type="PackedScene" uid="uid://cqdu4npym77hm" path="res://farmer/farmer.tscn" id="1_at1a1"]
 [ext_resource type="Script" uid="uid://cyylvbjdeiv8e" path="res://farm/farm.gd" id="1_qys1r"]
 [ext_resource type="PackedScene" uid="uid://mcq4epvbauin" path="res://barn/barn.tscn" id="1_ukrf4"]
 [ext_resource type="PackedScene" uid="uid://cquhif3oogil8" path="res://goat/goat.tscn" id="2_qnc1y"]
-[ext_resource type="PackedScene" uid="uid://dircmh8bpxfv7" path="res://shopper/shopper.tscn" id="4_72csm"]
 [ext_resource type="PackedScene" uid="uid://dey06x3nhwoiq" path="res://farm/fence.tscn" id="6_mjpad"]
 
 [sub_resource type="Curve2D" id="Curve2D_mjpad"]
@@ -17,7 +16,6 @@ point_count = 4
 [node name="Farm" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_qys1r")
-shopper_scene = ExtResource("4_72csm")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
