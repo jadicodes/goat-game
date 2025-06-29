@@ -2,7 +2,11 @@
 
 importer="wav"
 type="AudioStreamWAV"
+<<<<<<< HEAD
 uid="uid://diy1gjsj6dyos"
+=======
+uid="uid://bvpigjflfjq6h"
+>>>>>>> a8a6bad (Trim audio files)
 path="res://.godot/imported/freaky_1.wav-d87d33d86614acac58b1928acc16dad2.sample"
 
 [deps]

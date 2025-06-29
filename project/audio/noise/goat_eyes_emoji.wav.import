@@ -2,7 +2,11 @@
 
 importer="wav"
 type="AudioStreamWAV"
+<<<<<<< HEAD
 uid="uid://oj8rupx34hqm"
+=======
+uid="uid://d33lqroblieew"
+>>>>>>> a8a6bad (Trim audio files)
 path="res://.godot/imported/goat_eyes_emoji.wav-24ae45c79e6ec9076a5212acfd0096a7.sample"
 
 [deps]

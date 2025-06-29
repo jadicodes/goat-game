@@ -2,7 +2,11 @@
 
 importer="wav"
 type="AudioStreamWAV"
+<<<<<<< HEAD
 uid="uid://b6kp16jg0kgin"
+=======
+uid="uid://budaac4f1mcq1"
+>>>>>>> a8a6bad (Trim audio files)
 path="res://.godot/imported/bleat_1.wav-1f691d9584de910af6b25978f5a17ec2.sample"
 
 [deps]
