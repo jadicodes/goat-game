@@ -62,6 +62,10 @@ interact={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://localization/text.en.translation", "res://localization/text.de.translation")
+
 [layer_names]
 
 2d_physics/layer_1="farmer"
