@@ -22,6 +22,7 @@ y_sort_enabled = true
 collision_layer = 9
 
 [node name="FenceDiagonal" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(451, 1004)
 rotation = -3.14159
 scale = Vector2(1, -1)
@@ -29,6 +30,7 @@ texture = ExtResource("2_83sj1")
 offset = Vector2(-19, -55)
 
 [node name="FenceDiagonal3" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(389, 968)
 rotation = -3.14159
 scale = Vector2(1, -1)
@@ -36,108 +38,132 @@ texture = ExtResource("2_83sj1")
 offset = Vector2(-19, -55)
 
 [node name="FenceFront2" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(440, 1020)
 texture = ExtResource("1_uuj8f")
 offset = Vector2(137, -64)
 
 [node name="FenceFront3" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(440, 1020)
 texture = ExtResource("1_uuj8f")
 offset = Vector2(246, -64)
 
 [node name="FenceFront4" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(440, 1020)
 texture = ExtResource("1_uuj8f")
 offset = Vector2(356, -64)
 
 [node name="FenceFront5" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(440, 1020)
 texture = ExtResource("1_uuj8f")
 offset = Vector2(465, -64)
 
 [node name="FenceFront6" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(440, 1020)
 texture = ExtResource("1_uuj8f")
 offset = Vector2(573, -64)
 
 [node name="FenceFront7" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(440, 1020)
 texture = ExtResource("1_uuj8f")
 offset = Vector2(682, -64)
 
 [node name="FenceFront8" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(440, 1020)
 texture = ExtResource("1_uuj8f")
 offset = Vector2(792, -64)
 
 [node name="FenceFront9" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(440, 1020)
 texture = ExtResource("1_uuj8f")
 offset = Vector2(901, -64)
 
 [node name="FenceDiagonal2" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(1431, 1009)
 texture = ExtResource("2_83sj1")
 offset = Vector2(16, -57)
 
 [node name="FenceDiagonal4" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(233, 970)
 texture = ExtResource("2_83sj1")
 offset = Vector2(1277, -55)
 
 [node name="FenceSide2" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(372, 851)
 texture = ExtResource("3_utdkg")
 
 [node name="FenceSide3" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(373, 747)
 texture = ExtResource("3_utdkg")
 
 [node name="FenceSide4" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(373, 644)
 texture = ExtResource("3_utdkg")
 
 [node name="FenceSide10" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(373, 541)
 texture = ExtResource("3_utdkg")
 
 [node name="FenceSide11" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(373, 438)
 texture = ExtResource("3_utdkg")
 
 [node name="FenceSide7" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(1547, 850)
 texture = ExtResource("3_utdkg")
 
 [node name="FenceSide8" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(1548, 746)
 texture = ExtResource("3_utdkg")
 
 [node name="FenceSide9" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(1548, 643)
 texture = ExtResource("3_utdkg")
 
 [node name="FenceSide5" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(1549, 539)
 texture = ExtResource("3_utdkg")
 
 [node name="FenceSide12" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(1549, 437)
 texture = ExtResource("3_utdkg")
 
 [node name="FenceSide13" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(373, 334)
 texture = ExtResource("3_utdkg")
 
 [node name="FenceSide14" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(1549, 333)
 texture = ExtResource("3_utdkg")
 
 [node name="FencePostOne" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(512, 956)
 texture = ExtResource("5_cxgpr")
 
 [node name="FencePostOne2" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(1405, 956)
 texture = ExtResource("5_cxgpr")
 

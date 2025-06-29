@@ -45,12 +45,14 @@ stream_4/stream = ExtResource("15_kji8r")
 stream_4/weight = 5.0
 
 [node name="Goat" type="CharacterBody2D"]
+y_sort_enabled = true
 collision_layer = 6
 collision_mask = 8
 script = ExtResource("1_rf04r")
 
 [node name="DirectionalSprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
+y_sort_enabled = true
 material = SubResource("ShaderMaterial_l80ky")
 texture = ExtResource("4_xcji4")
 offset = Vector2(0, -30)

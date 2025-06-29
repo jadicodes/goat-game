@@ -47,6 +47,7 @@ script = ExtResource("1_jyoi8")
 
 [node name="DirectionalSprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
+y_sort_enabled = true
 material = SubResource("ShaderMaterial_aacoh")
 position = Vector2(-1, 126)
 texture = ExtResource("2_ldiyr")
