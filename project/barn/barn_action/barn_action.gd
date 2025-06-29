@@ -1,6 +1,7 @@
 class_name BarnAction
 extends RefCounted
 
+var is_instantaneous := false
 var conductor: BarnActionConductor
 
 

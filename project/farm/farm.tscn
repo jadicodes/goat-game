@@ -30,9 +30,10 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_a1lvl")
 
-[node name="Barn" parent="." instance=ExtResource("1_ukrf4")]
+[node name="Barn" parent="." node_paths=PackedStringArray("_farmer") instance=ExtResource("1_ukrf4")]
 unique_name_in_owner = true
 position = Vector2(960, 155)
+_farmer = NodePath("../Farmer")
 
 [node name="Farmer" parent="." instance=ExtResource("1_at1a1")]
 y_sort_enabled = true

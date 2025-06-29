@@ -170,6 +170,7 @@ position = Vector2(-16, 95)
 texture = ExtResource("9_1sw7u")
 
 [node name="BarnDoor" parent="." node_paths=PackedStringArray("_conductor") instance=ExtResource("2_slllp")]
+unique_name_in_owner = true
 collision_layer = 5
 _conductor = NodePath("../BarnActionConductor")
 

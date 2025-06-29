@@ -15,7 +15,7 @@ func interact(caller: Node) -> void:
 	var goats: Array[Goat] = caller.empty_goats()
 
 	if goats.is_empty():
-		_go_to_sleep(caller)
+		_conductor.add_goats([])
 		return
 
 	var bundle := GoatBundle.new(self, goats)
@@ -29,7 +29,7 @@ func interact(caller: Node) -> void:
 	bundle.complete.connect(_bundle_complete.bind(bundle))
 
 	if open_doors:
-		_animation_player.play("door_open")
+		await open()
 
 
 func add_goat(goat: Goat) -> void:
@@ -44,70 +44,22 @@ func add_goat(goat: Goat) -> void:
 	_goats_to_bundles.erase(goat)
 
 	if _goats_to_bundles.is_empty():
-		_animation_player.play_backwards("door_open")
+		await close()
+
+
+func open() -> void:
+	_animation_player.play("door_open")
+	await _animation_player.animation_finished
+
+
+func close() -> void:
+	_animation_player.play_backwards("door_open")
+	await _animation_player.animation_finished
 
 
 func _bundle_complete(bundle: GoatBundle) -> void:
 	_conductor.add_goats(bundle.get_goats())
 	bundle.complete.disconnect(_bundle_complete)
-
-
-func _sacrifice_goat(farmer: Node2D) -> void:
-	_animation_player.play("door_open")
-
-	await _animation_player.animation_finished
-
-	farmer.visible = false
-
-	_animation_player.play_backwards("door_open")
-
-	await _animation_player.animation_finished
-
-	_animation_player.play("sacrifice")
-	
-	# Update souls
-
-	await _animation_player.animation_finished
-	
-	_animation_player.play_backwards("sacrifice")
-
-	await _animation_player.animation_finished
-
-	_animation_player.play("door_open")
-
-	await _animation_player.animation_finished
-
-	farmer.visible = true
-
-	_animation_player.play_backwards("door_open")
-
-	await _animation_player.animation_finished
-
-
-func _go_to_sleep(farmer: Node2D) -> void:
-	_animation_player.play("door_open")
-
-	await _animation_player.animation_finished
-
-	farmer.visible = false
-	farmer.process_mode = Node2D.PROCESS_MODE_DISABLED
-
-	_animation_player.play_backwards("door_open")
-
-	await _animation_player.animation_finished
-
-	await get_parent().go_to_sleep()
-
-	_animation_player.play("door_open")
-
-	await _animation_player.animation_finished
-
-	farmer.visible = true
-	farmer.process_mode = Node2D.PROCESS_MODE_INHERIT
-
-	_animation_player.play_backwards("door_open")
-
-	await _animation_player.animation_finished
 
 
 class GoatBundle extends RefCounted:
