@@ -6,8 +6,11 @@ var speed: int = 100
 @onready var state_machine: StateMachine = $StateMachine
 
 
-func _physics_process(_delta: float) -> void:
-	move_and_slide()
+func _physics_process(delta: float) -> void:
+	var collision := move_and_collide(velocity * delta)
+
+	if collision:
+		state_machine.state.on_collision(collision)
 
 
 func interact(caller: Node) -> void:

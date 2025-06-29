@@ -24,8 +24,8 @@ shader_parameter/enabled = false
 shader_parameter/modulate_color = Color(1, 1, 1, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_avbde"]
-radius = 54.0
-height = 230.0
+radius = 64.0
+height = 256.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ldiyr"]
 bg_color = Color(1, 1, 1, 1)
@@ -60,7 +60,6 @@ _back_flipped = true
 metadata/_custom_type_script = "uid://d20spc7xxot7"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 19)
 shape = SubResource("CapsuleShape2D_avbde")
 
 [node name="StateMachine" type="Node" parent="."]

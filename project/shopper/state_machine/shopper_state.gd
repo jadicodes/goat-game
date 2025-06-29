@@ -19,3 +19,7 @@ func _ready() -> void:
 		shopper != null,
 		"The ShopperState state type must be used only in the shopper scene. It needs the owner to be a Shopper node."
 	)
+
+
+func on_collision(_collision: KinematicCollision2D) -> void:
+	pass
