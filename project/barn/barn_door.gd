@@ -58,6 +58,7 @@ func _go_to_sleep(farmer: Node2D) -> void:
 	await _animation_player.animation_finished
 
 	farmer.visible = false
+	farmer.process_mode = Node2D.PROCESS_MODE_DISABLED
 
 	_animation_player.play_backwards("door_open")
 
@@ -70,6 +71,7 @@ func _go_to_sleep(farmer: Node2D) -> void:
 	await _animation_player.animation_finished
 
 	farmer.visible = true
+	farmer.process_mode = Node2D.PROCESS_MODE_INHERIT
 
 	_animation_player.play_backwards("door_open")
 
