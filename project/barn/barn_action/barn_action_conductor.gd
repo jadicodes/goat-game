@@ -2,12 +2,16 @@ class_name BarnActionConductor
 extends Node
 
 static var barn_action_classes: Array[GDScript] = [
+	SleepBarnAction,
+	SacrificeGoatBarnAction,
 	BreedGoatBarnAction,
 ]
 
 @export var goat_breeder: GoatBreeder
 
 var _barn_actions: Array[BarnAction] = []
+
+@onready var barn: Barn = get_parent()
 
 
 func add_goats(goats: Array[Goat]) -> void:
@@ -17,8 +21,7 @@ func add_goats(goats: Array[Goat]) -> void:
 		if not barn_action_class.is_applicable(data):
 			continue
 
-		var barn_action: BarnAction = barn_action_class.new(self, data)
-		_barn_actions.append(barn_action)
+		await _add_action(barn_action_class.new(self, data))
 		return
 
 	print("No applicable barn action found for the given goats.")
@@ -41,3 +44,13 @@ func cancel_barn_actions() -> void:
 		print("Cancelled barn action: ", barn_action)
 
 	_barn_actions.clear()
+
+
+func _add_action(barn_action: BarnAction) -> void:
+	if barn_action.is_instantaneous:
+		print("Barn action is instantaneous, activating immediately.")
+		await barn_action.activate()
+		return
+
+	_barn_actions.append(barn_action)
+	print("Added barn action: ", barn_action)
