@@ -43,7 +43,7 @@ position = Vector2(892, 532)
 y_sort_enabled = true
 
 [node name="Goat1" parent="Goats" instance=ExtResource("2_qnc1y")]
-position = Vector2(390, 712)
+position = Vector2(442, 712)
 _coat_alleles = Vector2i(1, 1)
 
 [node name="Goat2" parent="Goats" instance=ExtResource("2_qnc1y")]
