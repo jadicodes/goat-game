@@ -15,6 +15,9 @@ func _process(_delta: float) -> void:
 
 	var collider = $HitCast.get_collider(0)
 
+	if not collider:
+		return
+
 	if collider != _last_hovered and _last_hovered:
 		_last_hovered.stop_hover()
 
