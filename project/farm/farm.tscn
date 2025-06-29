@@ -52,6 +52,66 @@ y_sort_enabled = true
 position = Vector2(1319, 509)
 _coat_alleles = Vector2i(0, 2)
 
+[node name="Goat3" parent="Goats" instance=ExtResource("2_qnc1y")]
+y_sort_enabled = true
+position = Vector2(390, 712)
+_coat_alleles = Vector2i(1, 1)
+
+[node name="Goat4" parent="Goats" instance=ExtResource("2_qnc1y")]
+y_sort_enabled = true
+position = Vector2(1319, 509)
+_coat_alleles = Vector2i(0, 2)
+
+[node name="Goat5" parent="Goats" instance=ExtResource("2_qnc1y")]
+y_sort_enabled = true
+position = Vector2(390, 712)
+_coat_alleles = Vector2i(1, 1)
+
+[node name="Goat6" parent="Goats" instance=ExtResource("2_qnc1y")]
+y_sort_enabled = true
+position = Vector2(1319, 509)
+_coat_alleles = Vector2i(0, 2)
+
+[node name="Goat7" parent="Goats" instance=ExtResource("2_qnc1y")]
+y_sort_enabled = true
+position = Vector2(390, 712)
+_coat_alleles = Vector2i(1, 1)
+
+[node name="Goat8" parent="Goats" instance=ExtResource("2_qnc1y")]
+y_sort_enabled = true
+position = Vector2(1319, 509)
+_coat_alleles = Vector2i(0, 2)
+
+[node name="Goat9" parent="Goats" instance=ExtResource("2_qnc1y")]
+y_sort_enabled = true
+position = Vector2(390, 712)
+_coat_alleles = Vector2i(1, 1)
+
+[node name="Goat10" parent="Goats" instance=ExtResource("2_qnc1y")]
+y_sort_enabled = true
+position = Vector2(1319, 509)
+_coat_alleles = Vector2i(0, 2)
+
+[node name="Goat11" parent="Goats" instance=ExtResource("2_qnc1y")]
+y_sort_enabled = true
+position = Vector2(390, 712)
+_coat_alleles = Vector2i(1, 1)
+
+[node name="Goat12" parent="Goats" instance=ExtResource("2_qnc1y")]
+y_sort_enabled = true
+position = Vector2(1319, 509)
+_coat_alleles = Vector2i(0, 2)
+
+[node name="Goat13" parent="Goats" instance=ExtResource("2_qnc1y")]
+y_sort_enabled = true
+position = Vector2(390, 712)
+_coat_alleles = Vector2i(1, 1)
+
+[node name="Goat14" parent="Goats" instance=ExtResource("2_qnc1y")]
+y_sort_enabled = true
+position = Vector2(1319, 509)
+_coat_alleles = Vector2i(0, 2)
+
 [node name="Fence" parent="." instance=ExtResource("6_mjpad")]
 
 [node name="ShopperPath" type="Path2D" parent="."]
