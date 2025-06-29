@@ -13,7 +13,7 @@ func _process(_delta: float) -> void:
 	if not hit_cast.is_colliding():
 		return
 
-	var collider = $HitCast.get_collider(0)
+	var collider = hit_cast.get_collider(0)
 
 	if not collider:
 		return
