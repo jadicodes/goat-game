@@ -43,6 +43,7 @@ corner_radius_bottom_left = 8
 y_sort_enabled = true
 collision_layer = 4
 collision_mask = 5
+motion_mode = 1
 script = ExtResource("1_jyoi8")
 
 [node name="DirectionalSprite2D" type="Sprite2D" parent="."]

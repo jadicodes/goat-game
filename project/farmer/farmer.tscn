@@ -13,6 +13,7 @@ radius = 32.0
 
 [node name="Farmer" type="CharacterBody2D"]
 collision_mask = 9
+motion_mode = 1
 script = ExtResource("1_7h16g")
 
 [node name="DirectionalSprite2D" type="Sprite2D" parent="."]

@@ -48,6 +48,7 @@ stream_4/weight = 5.0
 y_sort_enabled = true
 collision_layer = 6
 collision_mask = 8
+motion_mode = 1
 script = ExtResource("1_rf04r")
 
 [node name="DirectionalSprite2D" type="Sprite2D" parent="."]
