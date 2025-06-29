@@ -15,7 +15,7 @@ func _ready() -> void:
 
 func enter(_previous_state_path: String, _data := {}) -> void:
 	shopper.velocity = (
-		((get_viewport().size / 2.0) - shopper.global_position).normalized() * shopper.speed
+		((get_viewport().get_visible_rect().size / 2.0) - shopper.global_position).normalized() * shopper.speed
 	)
 
 	timer.start(5)

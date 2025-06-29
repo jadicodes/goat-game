@@ -4,7 +4,7 @@ extends ShopperState
 
 func enter(_previous_state_path: String, _data := {}) -> void:
 	shopper.velocity = (
-		(shopper.global_position - (get_viewport().size / 2.0)).normalized() * shopper.speed
+		(shopper.global_position - (get_viewport().get_visible_rect().size / 2.0)).normalized() * shopper.speed
 	)
 
 	# Disable collision so shopper can leave the screen
