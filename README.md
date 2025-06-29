@@ -1,4 +1,4 @@
-# Goat Game
+# Bleating Ritual
 
 A goat farming and sacrificing simulation game built with Godot 4.4, where players manage goats with genetic systems and DNA-based traits.
 
