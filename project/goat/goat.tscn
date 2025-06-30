@@ -1,10 +1,10 @@
-[gd_scene load_steps=37 format=3 uid="uid://cquhif3oogil8"]
+[gd_scene load_steps=41 format=3 uid="uid://cquhif3oogil8"]
 
 [ext_resource type="Script" uid="uid://cwrc72jas37aa" path="res://goat/goat.gd" id="1_rf04r"]
 [ext_resource type="Script" uid="uid://d20spc7xxot7" path="res://directional_sprite/directional_sprite.gd" id="2_d2nyf"]
 [ext_resource type="Shader" uid="uid://ctv322np0pxm0" path="res://hover_outline.gdshader" id="2_m3eqh"]
+[ext_resource type="Texture2D" uid="uid://bg8005hl06tub" path="res://goat/goat_idle_back_sheet.png" id="3_jg6it"]
 [ext_resource type="Texture2D" uid="uid://by8olwks53i3e" path="res://goat/goat_idle_front_shet.png" id="4_jg6it"]
-[ext_resource type="Texture2D" uid="uid://drg48rpojyljm" path="res://goat/goat_sprite_back.png" id="4_rf04r"]
 [ext_resource type="Texture2D" uid="uid://c0w58n8ho2i8" path="res://goat/goat_walk_back_sprite_sheet.png" id="5_jg6it"]
 [ext_resource type="Script" uid="uid://dwxhny1t5uu8p" path="res://state_machine/state_machine.gd" id="5_lkuck"]
 [ext_resource type="Script" uid="uid://w3ed86w0wx8q" path="res://goat/state_machine/goat_idle_state.gd" id="6_xcji4"]
@@ -26,6 +26,22 @@ shader_parameter/outline_thickness = 4.0
 shader_parameter/outline_color = Color(0.329412, 0.333333, 0.423529, 1)
 shader_parameter/enabled = false
 shader_parameter/modulate_color = Color(1, 1, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpqd0"]
+atlas = ExtResource("3_jg6it")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3j3t"]
+atlas = ExtResource("3_jg6it")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5fh0"]
+atlas = ExtResource("3_jg6it")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mhj7"]
+atlas = ExtResource("3_jg6it")
+region = Rect2(384, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sruva"]
 atlas = ExtResource("4_jg6it")
@@ -87,7 +103,16 @@ region = Rect2(512, 0, 128, 128)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_rf04r")
+"texture": SubResource("AtlasTexture_hpqd0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3j3t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x5fh0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6mhj7")
 }],
 "loop": true,
 "name": &"idle_back",
@@ -182,9 +207,8 @@ unique_name_in_owner = true
 material = SubResource("ShaderMaterial_jg6it")
 position = Vector2(51, -49)
 sprite_frames = SubResource("SpriteFrames_cwojh")
-animation = &"idle_front"
+animation = &"idle_back"
 autoplay = "idle_front"
-frame_progress = 0.0501512
 offset = Vector2(-51, 49)
 script = ExtResource("2_d2nyf")
 metadata/_custom_type_script = "uid://d20spc7xxot7"
