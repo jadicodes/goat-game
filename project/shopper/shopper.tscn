@@ -1,9 +1,9 @@
-[gd_scene load_steps=27 format=3 uid="uid://dircmh8bpxfv7"]
+[gd_scene load_steps=35 format=3 uid="uid://dircmh8bpxfv7"]
 
 [ext_resource type="Script" uid="uid://7cnn8nna2ipi" path="res://shopper/shopper.gd" id="1_jyoi8"]
-[ext_resource type="Shader" uid="uid://gbw1pjqif6ic" path="res://hover_outline.gdshader" id="2_gio20"]
-[ext_resource type="Texture2D" uid="uid://d3ychibtxju4a" path="res://shopper/cultist_sprite.png" id="2_ldiyr"]
+[ext_resource type="Shader" uid="uid://ctv322np0pxm0" path="res://hover_outline.gdshader" id="2_gio20"]
 [ext_resource type="Script" uid="uid://dwxhny1t5uu8p" path="res://state_machine/state_machine.gd" id="3_3r4rk"]
+[ext_resource type="Texture2D" uid="uid://xxsnwteb4utb" path="res://shopper/cultist_bounce_sheet.png" id="3_aacoh"]
 [ext_resource type="Texture2D" uid="uid://3q631nl4fi0y" path="res://shopper/cultist_walk_sprite_sheet.png" id="4_aacoh"]
 [ext_resource type="Script" uid="uid://bk6gvoey2vghv" path="res://shopper/state_machine/shopper_enter_state.gd" id="4_ldiyr"]
 [ext_resource type="Script" uid="uid://b5eomeosf38qx" path="res://shopper/state_machine/shopper_arrive_at_fence_state.gd" id="5_gm5io"]
@@ -23,6 +23,38 @@ shader_parameter/outline_thickness = 4.0
 shader_parameter/outline_color = Color(0.148257, 0.00016995, 0.55775, 1)
 shader_parameter/enabled = false
 shader_parameter/modulate_color = Color(1, 1, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e45te"]
+atlas = ExtResource("3_aacoh")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntjw3"]
+atlas = ExtResource("3_aacoh")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_supwn"]
+atlas = ExtResource("3_aacoh")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ydfx"]
+atlas = ExtResource("3_aacoh")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yd83u"]
+atlas = ExtResource("3_aacoh")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wg182"]
+atlas = ExtResource("3_aacoh")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8d7y"]
+atlas = ExtResource("3_aacoh")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4w07p"]
+atlas = ExtResource("3_aacoh")
+region = Rect2(768, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ghlq"]
 atlas = ExtResource("4_aacoh")
@@ -60,7 +92,16 @@ region = Rect2(768, 0, 256, 256)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_ldiyr")
+"texture": SubResource("AtlasTexture_e45te")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntjw3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_supwn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ydfx")
 }],
 "loop": true,
 "name": &"idle_back",
@@ -68,7 +109,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_ldiyr")
+"texture": SubResource("AtlasTexture_yd83u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wg182")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8d7y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4w07p")
 }],
 "loop": true,
 "name": &"idle_front",
@@ -137,7 +187,7 @@ unique_name_in_owner = true
 material = SubResource("ShaderMaterial_aacoh")
 position = Vector2(0, 99)
 sprite_frames = SubResource("SpriteFrames_gio20")
-animation = &"walk_front"
+animation = &"idle_front"
 autoplay = "idle_front"
 offset = Vector2(0, -99)
 script = ExtResource("11_gm5io")

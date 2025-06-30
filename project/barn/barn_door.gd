@@ -98,3 +98,13 @@ class GoatBundle extends RefCounted:
 
 	func get_goats() -> Array[Goat]:
 		return _goats.keys()
+
+
+func hover() -> void:
+	%LeftDoor.material.set_shader_parameter("enabled", true)
+	%RightDoor.material.set_shader_parameter("enabled", true)
+
+
+func stop_hover() -> void:
+	%LeftDoor.material.set_shader_parameter("enabled", false)
+	%RightDoor.material.set_shader_parameter("enabled", false)

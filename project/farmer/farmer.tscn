@@ -1,11 +1,43 @@
-[gd_scene load_steps=18 format=3 uid="uid://cqdu4npym77hm"]
+[gd_scene load_steps=26 format=3 uid="uid://cqdu4npym77hm"]
 
 [ext_resource type="Script" uid="uid://dm2umt83y7wau" path="res://farmer/farmer.gd" id="1_7h16g"]
-[ext_resource type="Texture2D" uid="uid://sqj3sppvhpj6" path="res://farmer/farmer_sprite.png" id="2_7h16g"]
-[ext_resource type="Texture2D" uid="uid://cqxdafnj0jnjq" path="res://farmer/farmer_sprite_back.png" id="2_d38dk"]
+[ext_resource type="Texture2D" uid="uid://b6b41d6hkeckq" path="res://farmer/farmer_idle_back.png" id="2_dbs57"]
 [ext_resource type="Script" uid="uid://d20spc7xxot7" path="res://directional_sprite/directional_sprite.gd" id="2_vm3ej"]
+[ext_resource type="Texture2D" uid="uid://bephhe7l6ujov" path="res://farmer/farmer_idle_front.png" id="3_dbs57"]
 [ext_resource type="Texture2D" uid="uid://c2orwwouq6xtn" path="res://farmer/farm_walk_back_sprite_sheet.png" id="4_4difp"]
 [ext_resource type="Texture2D" uid="uid://0mke5ok6wqpx" path="res://farmer/farm_walk_front_sprite_sheet.png" id="5_dbs57"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhxj6"]
+atlas = ExtResource("2_dbs57")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gvf0"]
+atlas = ExtResource("2_dbs57")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdhkb"]
+atlas = ExtResource("2_dbs57")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nprlc"]
+atlas = ExtResource("2_dbs57")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3famh"]
+atlas = ExtResource("3_dbs57")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cm5ix"]
+atlas = ExtResource("3_dbs57")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4w46"]
+atlas = ExtResource("3_dbs57")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nx0fw"]
+atlas = ExtResource("3_dbs57")
+region = Rect2(768, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dbs57"]
 atlas = ExtResource("4_4difp")
@@ -43,7 +75,16 @@ region = Rect2(768, 0, 256, 256)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_d38dk")
+"texture": SubResource("AtlasTexture_hhxj6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gvf0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdhkb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nprlc")
 }],
 "loop": true,
 "name": &"idle_back",
@@ -51,7 +92,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_7h16g")
+"texture": SubResource("AtlasTexture_3famh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cm5ix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d4w46")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nx0fw")
 }],
 "loop": true,
 "name": &"idle_front",
@@ -105,7 +155,7 @@ script = ExtResource("1_7h16g")
 
 [node name="DirectionalSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4difp")
-animation = &"walk_front"
+animation = &"idle_back"
 autoplay = "idle_front"
 offset = Vector2(0, -104)
 script = ExtResource("2_vm3ej")
