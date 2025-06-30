@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Bleating Ritual"
-run/main_scene="uid://botoiyyc2kyur"
+run/main_scene="uid://21d43vsb4724"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="uid://cbb7bcnqvs1nw"
 
