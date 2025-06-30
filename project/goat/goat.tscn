@@ -1,10 +1,11 @@
-[gd_scene load_steps=27 format=3 uid="uid://cquhif3oogil8"]
+[gd_scene load_steps=33 format=3 uid="uid://cquhif3oogil8"]
 
 [ext_resource type="Script" uid="uid://cwrc72jas37aa" path="res://goat/goat.gd" id="1_rf04r"]
 [ext_resource type="Script" uid="uid://d20spc7xxot7" path="res://directional_sprite/directional_sprite.gd" id="2_d2nyf"]
 [ext_resource type="Shader" uid="uid://ctv322np0pxm0" path="res://hover_outline.gdshader" id="2_m3eqh"]
 [ext_resource type="Texture2D" uid="uid://drg48rpojyljm" path="res://goat/goat_sprite_back.png" id="4_rf04r"]
 [ext_resource type="Texture2D" uid="uid://b37k3xd0n13lf" path="res://goat/goat_sprite.png" id="4_xcji4"]
+[ext_resource type="Texture2D" uid="uid://c0w58n8ho2i8" path="res://goat/goat_walk_back_sprite_sheet.png" id="5_jg6it"]
 [ext_resource type="Script" uid="uid://dwxhny1t5uu8p" path="res://state_machine/state_machine.gd" id="5_lkuck"]
 [ext_resource type="Script" uid="uid://w3ed86w0wx8q" path="res://goat/state_machine/goat_idle_state.gd" id="6_xcji4"]
 [ext_resource type="Script" uid="uid://da6bp4lfb6i1f" path="res://goat/state_machine/goat_wander_state.gd" id="7_d2nyf"]
@@ -25,6 +26,26 @@ shader_parameter/outline_thickness = 4.0
 shader_parameter/outline_color = Color(0.329412, 0.333333, 0.423529, 1)
 shader_parameter/enabled = false
 shader_parameter/modulate_color = Color(1, 1, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwojh"]
+atlas = ExtResource("5_jg6it")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6xc5"]
+atlas = ExtResource("5_jg6it")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jf751"]
+atlas = ExtResource("5_jg6it")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmmqp"]
+atlas = ExtResource("5_jg6it")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1jv1"]
+atlas = ExtResource("5_jg6it")
+region = Rect2(512, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jg6it"]
 atlas = ExtResource("16_m3eqh")
@@ -66,7 +87,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_rf04r")
+"texture": SubResource("AtlasTexture_cwojh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6xc5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jf751")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmmqp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1jv1")
 }],
 "loop": true,
 "name": &"walk_back",
@@ -126,7 +159,7 @@ position = Vector2(51, -49)
 sprite_frames = SubResource("SpriteFrames_cwojh")
 animation = &"idle_front"
 autoplay = "idle_front"
-frame_progress = 0.939734
+frame_progress = 0.0501512
 offset = Vector2(-51, 49)
 script = ExtResource("2_d2nyf")
 metadata/_custom_type_script = "uid://d20spc7xxot7"
