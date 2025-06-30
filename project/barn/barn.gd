@@ -70,15 +70,16 @@ func use_power() -> bool:
 	_souls -= 1
 
 	if _souls == 0:
-		print("Barn is no longer powered.")
-		_animation_player.play_backwards("barn_power")
+		var tween = get_tree().create_tween()
+		tween.tween_property(self, "modulate", Color("#ffffff"), 0.5)
 
 	return true
 
 
 func add_soul(count := 1) -> void:
 	if not is_powered():
-		_animation_player.play("barn_power")
+		var tween = get_tree().create_tween()
+		tween.tween_property(self, "modulate", Color("#f5a390"), 0.5)
 
 	_souls += count
 
