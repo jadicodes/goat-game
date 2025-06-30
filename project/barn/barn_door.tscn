@@ -1,7 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://det3pk5b77cx5"]
+[gd_scene load_steps=9 format=3 uid="uid://det3pk5b77cx5"]
 
 [ext_resource type="Script" uid="uid://6id7nmtbv7pc" path="res://barn/barn_door.gd" id="1_cbndv"]
+[ext_resource type="Shader" uid="uid://gbw1pjqif6ic" path="res://hover_outline.gdshader" id="2_k4y2b"]
 [ext_resource type="Texture2D" uid="uid://bbs705l7dwsvb" path="res://barn/barn_door.png" id="2_pfu8r"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u2tfj"]
+shader = ExtResource("2_k4y2b")
+shader_parameter/allow_out_of_bounds = true
+shader_parameter/outline_thickness = 1.0
+shader_parameter/outline_color = Color(0.0696024, 0.0954549, 0.151009, 1)
+shader_parameter/enabled = false
+shader_parameter/modulate_color = Color(1, 1, 1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qwbcp"]
 size = Vector2(512, 255.5)
@@ -73,10 +82,14 @@ monitoring = false
 script = ExtResource("1_cbndv")
 
 [node name="LeftDoor" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_u2tfj")
 position = Vector2(-126, 0)
 texture = ExtResource("2_pfu8r")
 
 [node name="RightDoor" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_u2tfj")
 position = Vector2(126, 0)
 texture = ExtResource("2_pfu8r")
 
