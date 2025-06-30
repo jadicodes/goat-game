@@ -5,6 +5,7 @@ const TOTAL_DAYS := 4
 
 var speed: int = 100
 var _days: int = 0
+var start_day: int = 0
 
 @onready var state_machine: StateMachine = $StateMachine
 
