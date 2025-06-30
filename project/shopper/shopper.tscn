@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dircmh8bpxfv7"]
+[gd_scene load_steps=35 format=3 uid="uid://dircmh8bpxfv7"]
 
 [ext_resource type="Script" uid="uid://7cnn8nna2ipi" path="res://shopper/shopper.gd" id="1_jyoi8"]
 [ext_resource type="Shader" uid="uid://ctv322np0pxm0" path="res://hover_outline.gdshader" id="2_gio20"]
@@ -40,10 +40,6 @@ region = Rect2(512, 0, 256, 256)
 atlas = ExtResource("3_aacoh")
 region = Rect2(768, 0, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_o213f"]
-atlas = ExtResource("3_aacoh")
-region = Rect2(1024, 0, 256, 256)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_yd83u"]
 atlas = ExtResource("3_aacoh")
 region = Rect2(0, 0, 256, 256)
@@ -59,10 +55,6 @@ region = Rect2(512, 0, 256, 256)
 [sub_resource type="AtlasTexture" id="AtlasTexture_4w07p"]
 atlas = ExtResource("3_aacoh")
 region = Rect2(768, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p6bi2"]
-atlas = ExtResource("3_aacoh")
-region = Rect2(1024, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ghlq"]
 atlas = ExtResource("4_aacoh")
@@ -110,9 +102,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1ydfx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o213f")
 }],
 "loop": true,
 "name": &"idle_back",
@@ -130,9 +119,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4w07p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p6bi2")
 }],
 "loop": true,
 "name": &"idle_front",
