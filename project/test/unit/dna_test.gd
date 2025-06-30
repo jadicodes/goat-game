@@ -35,3 +35,13 @@ func test_dna_combination():
 		SizeGene.Allele.LARGE,
 		"Combined size gene y value should be LARGE"
 	)
+
+
+func test_advanced_request():
+	var dna := DNA.new()
+	var order_data: Dictionary = { "gene_type": 1, "phenotype": 0, "secondary_type": 0, "secondary_phenotype": 0 }
+	dna.get_gene(DNA.GeneType.SIZE).set_value(SizeGene.Allele.SMALL)
+	dna.get_gene(DNA.GeneType.COAT).set_value(CoatGene.Allele.WHITE)
+	assert_eq(dna.get_gene(DNA.GeneType.COAT).get_phenotype(), order_data["phenotype"], "Goat is not expected")
+	assert_eq(dna.get_gene(DNA.GeneType.SIZE).get_phenotype(), order_data["secondary_phenotype"], "Goat is not expected")
+

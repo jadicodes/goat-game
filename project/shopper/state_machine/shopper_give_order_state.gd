@@ -38,7 +38,7 @@ func _generate_order() -> Dictionary:
 		gene_type = [DNA.GeneType.SIZE].pick_random()
 
 		phenotype = DNA.get_gene_class(gene_type).get_random_phenotype()
-		if days <8:
+		if days <5:
 			order_data = {"gene_type": gene_type, "phenotype": phenotype}
 			print(order_data)
 		else:
