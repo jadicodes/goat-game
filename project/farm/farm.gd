@@ -6,9 +6,17 @@ var total_days := 0
 
 @onready var _barn: Barn = %Barn
 
+var _instructions_up := true
 
 func _ready() -> void:
 	_create_shopper.call_deferred()
+
+
+func _process(delta: float) -> void:
+	if _instructions_up:
+		if Input.is_action_just_pressed("interact"):
+			_instructions_up = false
+			%Instructions.hide()
 
 
 func _create_shopper() -> void:

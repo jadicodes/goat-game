@@ -11,6 +11,9 @@ var _last_hovered: Node
 
 func _process(_delta: float) -> void:
 	if not _hit_cast.is_colliding():
+		if _last_hovered:
+			_last_hovered.stop_hover()
+			_last_hovered = null
 		return
 
 	var collider = _hit_cast.get_collider(0)

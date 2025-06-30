@@ -18,7 +18,7 @@ func activate() -> void:
 	_goat.queue_free()
 	await conductor.barn.sacrifice()
 
-	# TODO: Add goat soul
+	conductor.barn.add_soul()
 
 
 static func is_applicable(data: Dictionary = {}) -> bool:
