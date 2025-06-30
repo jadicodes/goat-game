@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://botoiyyc2kyur"]
+[gd_scene load_steps=11 format=3 uid="uid://botoiyyc2kyur"]
 
 [ext_resource type="Texture2D" uid="uid://dedngjr1lli1" path="res://farm/field.png" id="1_a1lvl"]
 [ext_resource type="PackedScene" uid="uid://cqdu4npym77hm" path="res://farmer/farmer.tscn" id="1_at1a1"]
@@ -6,12 +6,19 @@
 [ext_resource type="PackedScene" uid="uid://mcq4epvbauin" path="res://barn/barn.tscn" id="1_ukrf4"]
 [ext_resource type="PackedScene" uid="uid://cquhif3oogil8" path="res://goat/goat.tscn" id="2_qnc1y"]
 [ext_resource type="PackedScene" uid="uid://dey06x3nhwoiq" path="res://farm/fence.tscn" id="6_mjpad"]
+[ext_resource type="Texture2D" uid="uid://vpolblrotysm" path="res://ui/book.png" id="7_udp8x"]
+[ext_resource type="Texture2D" uid="uid://b37k3xd0n13lf" path="res://goat/goat_sprite.png" id="8_ol6uc"]
 
 [sub_resource type="Curve2D" id="Curve2D_mjpad"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -96, 384, 0, 0, 0, 0, -96, 1368, 0, 0, 0, 0, 2016, 1368, 0, 0, 0, 0, 2016, 384)
 }
 point_count = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_jba3n"]
+line_spacing = 0.0
+font_size = 36
+font_color = Color(0.0862745, 0.0862745, 0.105882, 1)
 
 [node name="Farm" type="Node2D"]
 y_sort_enabled = true
@@ -74,5 +81,101 @@ offset_right = 244.0
 offset_bottom = 105.0
 theme_override_font_sizes/font_size = 64
 text = "1"
+
+[node name="Instructions" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="Book1" type="TextureRect" parent="Instructions"]
+offset_left = 295.0
+offset_top = -20.0
+offset_right = 1255.0
+offset_bottom = 1560.0
+scale = Vector2(0.705, 0.705)
+texture = ExtResource("7_udp8x")
+
+[node name="Book2" type="TextureRect" parent="Instructions"]
+offset_left = 1648.0
+offset_top = -20.0
+offset_right = 2608.0
+offset_bottom = 1560.0
+scale = Vector2(-0.705, 0.705)
+texture = ExtResource("7_udp8x")
+
+[node name="Label" type="Label" parent="Instructions"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 440.0
+offset_top = 37.0
+offset_right = -1015.0
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.0349066
+theme_override_colors/font_color = Color(0.0392157, 0.0392157, 0.0431373, 1)
+theme_override_font_sizes/font_size = 36
+text = "Welcome to the world of sacrificial goat breeding!
+
+Cultists request specific goats for their rituals. You must breed the correct goat and give it to the cultist within four days.
+
+Goats follow you if you highlight them and press E. Bring two goats to the barn to breed them. Interact alone with the barn to sleep. Goats will be born the next day."
+label_settings = SubResource("LabelSettings_jba3n")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="Instructions"]
+offset_left = 1072.0
+offset_top = 34.0
+offset_right = 1488.0
+offset_bottom = 1003.0
+rotation = 0.0174533
+theme_override_colors/font_color = Color(0.0666667, 0.0666667, 0.0666667, 1)
+theme_override_font_sizes/font_size = 36
+text = "Bring a single goat to the barn to sacrifice it. Sacrificing a goat gives you a soul, which will be used the next time you breed goats to breed them instantly.
+
+"
+autowrap_mode = 3
+
+[node name="Label3" type="Label" parent="Instructions"]
+offset_left = 1111.0
+offset_top = 893.0
+offset_right = 1379.0
+offset_bottom = 1073.0
+rotation = 0.0174533
+theme_override_colors/font_color = Color(0.0666667, 0.0666667, 0.0666667, 1)
+theme_override_font_sizes/font_size = 36
+text = "Press E to close.
+
+"
+autowrap_mode = 3
+
+[node name="GoatSprite" type="Sprite2D" parent="Instructions"]
+position = Vector2(1111, 598)
+texture = ExtResource("8_ol6uc")
+
+[node name="GoatSprite5" type="Sprite2D" parent="Instructions"]
+modulate = Color(0.5, 0.5, 0.5, 1)
+position = Vector2(1114, 756)
+texture = ExtResource("8_ol6uc")
+
+[node name="GoatSprite6" type="Sprite2D" parent="Instructions"]
+modulate = Color(0.25, 0.125, 0, 1)
+position = Vector2(1378, 760)
+texture = ExtResource("8_ol6uc")
+
+[node name="GoatSprite3" type="Sprite2D" parent="Instructions"]
+modulate = Color(0.5, 0.25, 0, 1)
+position = Vector2(1378, 606)
+texture = ExtResource("8_ol6uc")
+
+[node name="GoatSprite4" type="Sprite2D" parent="Instructions"]
+modulate = Color(0.75, 0.5, 0.25, 1)
+position = Vector2(1243, 529)
+texture = ExtResource("8_ol6uc")
+
+[node name="GoatSprite2" type="Sprite2D" parent="Instructions"]
+modulate = Color(0.2, 0.2, 0.2, 1)
+position = Vector2(1247, 819)
+texture = ExtResource("8_ol6uc")
 
 [connection signal="day_advanced" from="Barn" to="." method="_on_barn_day_advanced"]
