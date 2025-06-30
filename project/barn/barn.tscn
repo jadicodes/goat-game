@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://mcq4epvbauin"]
+[gd_scene load_steps=17 format=3 uid="uid://mcq4epvbauin"]
 
 [ext_resource type="Texture2D" uid="uid://cvugrcalq6hbr" path="res://barn/barn.png" id="1_02c0v"]
 [ext_resource type="Script" uid="uid://cvg1b4m41fa4a" path="res://barn/barn.gd" id="1_bhhye"]
@@ -59,6 +59,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_a5wdv"]
@@ -136,9 +148,25 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_1sw7u"]
+resource_name = "barn_power"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.96, 0.63856, 0.5664, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bhhye"]
 _data = {
 &"RESET": SubResource("Animation_bhhye"),
+&"barn_power": SubResource("Animation_1sw7u"),
 &"barn_shake": SubResource("Animation_a5wdv"),
 &"barn_sleep": SubResource("Animation_pjnw1"),
 &"sacrifice": SubResource("Animation_1yres")

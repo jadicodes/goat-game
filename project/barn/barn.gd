@@ -7,6 +7,8 @@ const SACRIFICE_DURATION := 0.5
 
 @export var _farmer: Farmer
 
+var _souls := 0
+
 @onready var _conductor: BarnActionConductor = %BarnActionConductor
 @onready var _animation_player: AnimationPlayer = %AnimationPlayer
 @onready var _barn_door: BarnDoor = %BarnDoor
@@ -23,11 +25,7 @@ func go_to_sleep() -> void:
 
 	await _play_sleep_animation()
 
-	_animation_player.play("barn_shake")
-
 	await _conductor.activate_barn_actions()
-
-	_animation_player.stop()
 
 	await _play_wake_animation()
 
@@ -50,6 +48,39 @@ func sacrifice() -> void:
 
 	_animation_player.play_backwards("sacrifice")
 	await _animation_player.animation_finished
+
+
+func start_shaking() -> void:
+	_animation_player.play("barn_shake")
+	await _animation_player.animation_finished
+
+
+func stop_shaking() -> void:
+	_animation_player.stop()
+
+
+func is_powered() -> bool:
+	return _souls > 0
+
+
+func use_power() -> bool:
+	if not is_powered():
+		return false
+
+	_souls -= 1
+
+	if _souls == 0:
+		print("Barn is no longer powered.")
+		_animation_player.play_backwards("barn_power")
+
+	return true
+
+
+func add_soul(count := 1) -> void:
+	if not is_powered():
+		_animation_player.play("barn_power")
+
+	_souls += count
 
 
 func _play_sleep_animation() -> void:
