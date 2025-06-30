@@ -28,6 +28,12 @@ func interact(caller: Node) -> void:
 	for goat in goats:
 		var phenotype: int = goat.dna.get_gene(_order_data.gene_type).get_phenotype()
 
+		if _order_data.has("secondary_type"):
+			var secondary_phenotype: int = goat.dna.get_gene(_order_data.secondary_type).get_phenotype()
+			if secondary_phenotype != _order_data.secondary_phenotype:
+				print("SHOPPER: No matching goats found!")
+				finished.emit(ORDER_FAILURE)
+
 		if phenotype == _order_data.phenotype:
 			goat.queue_free()
 
