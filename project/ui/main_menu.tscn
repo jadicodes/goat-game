@@ -1,8 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://21d43vsb4724"]
+[gd_scene load_steps=7 format=3 uid="uid://21d43vsb4724"]
 
 [ext_resource type="Script" uid="uid://c58wnsrp3t043" path="res://ui/main_menu.gd" id="1_0dkrt"]
 [ext_resource type="Texture2D" uid="uid://b4uyopxxyjhwd" path="res://ui/signature.png" id="1_t7e0r"]
 [ext_resource type="Texture2D" uid="uid://boc5n068wb874" path="res://ui/background.png" id="2_wk0pr"]
+[ext_resource type="Texture2D" uid="uid://vpolblrotysm" path="res://ui/book.png" id="4_rmr83"]
+[ext_resource type="Texture2D" uid="uid://cbb7bcnqvs1nw" path="res://goat_favicon.png" id="5_8uxxo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rmr83"]
+bg_color = Color(0.290196, 0.152941, 0.0901961, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.0823529, 0.101961, 0.12549, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -29,14 +43,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -413.5
-offset_top = -280.5
-offset_right = 413.5
-offset_bottom = -77.5
+offset_left = -485.0
+offset_top = -294.5
+offset_right = 485.0
+offset_bottom = -57.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.0834225, 0.101563, 0.127389, 1)
-theme_override_font_sizes/font_size = 128
+theme_override_font_sizes/font_size = 161
 text = "Bleating Ritual"
 
 [node name="PlayButton" type="Button" parent="."]
@@ -46,14 +60,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -330.5
-offset_top = -4.0
-offset_right = 330.5
-offset_bottom = 106.0
+offset_left = -262.5
+offset_top = 2.0
+offset_right = 262.5
+offset_bottom = 120.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.709804, 0.635294, 0.45098, 1)
 theme_override_font_sizes/font_size = 64
-text = "I'd like to play the game"
+theme_override_styles/hover = SubResource("StyleBoxFlat_rmr83")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rmr83")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rmr83")
+text = "Play Game"
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 0
@@ -73,5 +91,16 @@ offset_top = 735.0
 offset_right = 1490.0
 offset_bottom = 935.0
 texture_progress = ExtResource("1_t7e0r")
+
+[node name="Book" type="Sprite2D" parent="."]
+position = Vector2(-162, 684)
+rotation = 2.98874
+texture = ExtResource("4_rmr83")
+
+[node name="GoatFavicon" type="Sprite2D" parent="."]
+position = Vector2(1803, 956)
+rotation = 0.49432
+scale = Vector2(-1.38973, 1.33446)
+texture = ExtResource("5_8uxxo")
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
