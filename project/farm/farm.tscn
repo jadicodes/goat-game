@@ -65,23 +65,6 @@ unique_name_in_owner = true
 position = Vector2(-96, 384)
 rotation = 1.5708
 
-[node name="SoulsLabel" type="Label" parent="."]
-offset_left = 7.0
-offset_top = 981.0
-offset_right = 166.0
-offset_bottom = 1083.0
-theme_override_font_sizes/font_size = 64
-text = "Souls:"
-
-[node name="NumberLabel" type="Label" parent="SoulsLabel"]
-layout_mode = 0
-offset_left = 169.0
-offset_top = 3.0
-offset_right = 244.0
-offset_bottom = 105.0
-theme_override_font_sizes/font_size = 64
-text = "1"
-
 [node name="Instructions" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
 
